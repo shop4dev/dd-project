@@ -15,4 +15,14 @@ class TasksController extends Controller
     {
         return $this->render('tasks/index.html.twig');
     }
+
+    /**
+    * @Route("/profile", name="profile")
+    */
+    public function profileAction(Request $request)
+    {
+        return $this->render('tasks/profile.html.twig', [
+            'avatar_url' => 'https://avatars1.githubusercontent.com/u/12968163?v=3'
+        ]);
+    }
 }
