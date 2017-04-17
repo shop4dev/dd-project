@@ -1,0 +1,18 @@
+{% extends 'todo/base.html.twig' %}
+
+{% block body %}
+
+    <h2 class="page-header">Add New Element</h2>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+    <script>
+        window.onunload = refreshParent;
+        function refreshParent() {
+            window.opener.location.reload();
+            window.close();
+        }
+    </script>
+
+{% endblock %}
