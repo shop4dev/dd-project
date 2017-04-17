@@ -162,7 +162,7 @@ class TodoController extends Controller
         ));
     }
     /**
-     * @Route("/todo/edit/{id}", name="todo_edit")
+     * @Route("/profile/edit/{id}", name="todo_edit")
      */
     public function editAction($id, Request $request)
     {
