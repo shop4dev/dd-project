@@ -6,6 +6,68 @@
     {% endif %}
 {% endblock %}
 
+{% block infobox %}
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Your TODOS</span>
+                    <span class="info-box-number">{{ todo_count }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Completed</span>
+                    <span class="info-box-number">0<small>%</small></span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Users</span>
+                    <span class="info-box-number">{{ user_count }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Total TODOS</span>
+                    <span class="info-box-number">{{ all_count }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+    </div>
+    <!-- /.row -->
+{% endblock %}
+
 {% block body %}
 
     {% for tolist in lists %}
@@ -41,7 +103,7 @@
                         <!-- General tools such as edit or delete-->
                         <div class="tools">
                             <i class="fa fa-edit"></i>
-                            <a href="/profile/delete/{{ todo.id }}" style="color:   #dd4b39"><i class="fa fa-trash-o"></i></a>
+                            <a href="/profile/delete/{{ todo.id }}" style="color: #dd4b39"><i class="fa fa-trash-o"></i></a>
                         </div>
                     </li>
                 {% endfor %}

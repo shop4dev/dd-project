@@ -31,20 +31,33 @@ class TodoController extends Controller
      */
     public function listAction()
     {
-        $user = $this->getDoctrine()
+        $users = $this->getDoctrine()
             ->getRepository('AppBundle:User')
-            ->find($this->getUser());
+            ->findAll();
+
+        $allTodos = $this->getDoctrine()
+            ->getRepository('AppBundle:Todo')
+            ->findAll();
+
+        $user = $this->getUser();
 
         $lists = $user->getToLists();
 
         $data = array();
 
+        $todoCount = 0;
+
         foreach  ($lists as $list)
         {
-            $data[$list->getId()] = $list->getTodos();
+            $todos = $list->getTodos();
+            $todoCount = $todoCount + count($todos);
+            $data[$list->getId()] = $todos;
         }
 
         return $this->render('profile/Default/index.html.twig', array(
+            'todo_count' => $todoCount,
+            'user_count' => count($users),
+            'all_count' => count($allTodos),
             'lists' => $lists,
             'data' => $data
         ));

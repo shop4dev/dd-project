@@ -11,17 +11,18 @@ class __TwigTemplate_d6df6519036cd1b52a7160ed2b3094e786956a6b9bde32afa02548ec029
 
         $this->blocks = array(
             'title' => array($this, 'block_title'),
+            'infobox' => array($this, 'block_infobox'),
             'body' => array($this, 'block_body'),
         );
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_b06f1ecc89c424f7e30dd97f06d0604bb4fdcc78e94edf05df79662880a02e6a = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_b06f1ecc89c424f7e30dd97f06d0604bb4fdcc78e94edf05df79662880a02e6a->enter($__internal_b06f1ecc89c424f7e30dd97f06d0604bb4fdcc78e94edf05df79662880a02e6a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "profile/base.html.twig"));
+        $__internal_e7617fefa16d6f4d9e49380673996675b7cebc9f9eb6a272fc52c29004e5a334 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_e7617fefa16d6f4d9e49380673996675b7cebc9f9eb6a272fc52c29004e5a334->enter($__internal_e7617fefa16d6f4d9e49380673996675b7cebc9f9eb6a272fc52c29004e5a334_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "profile/base.html.twig"));
 
-        $__internal_3619258546bc7f9500759bf275803f7ecebccebf7cd4c6ee74c817ae4f928879 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_3619258546bc7f9500759bf275803f7ecebccebf7cd4c6ee74c817ae4f928879->enter($__internal_3619258546bc7f9500759bf275803f7ecebccebf7cd4c6ee74c817ae4f928879_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "profile/base.html.twig"));
+        $__internal_c8c6cf37cd3c4deec943761949c40ffc31acc39fe938a01517cc4bd31b078717 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_c8c6cf37cd3c4deec943761949c40ffc31acc39fe938a01517cc4bd31b078717->enter($__internal_c8c6cf37cd3c4deec943761949c40ffc31acc39fe938a01517cc4bd31b078717_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "profile/base.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -636,75 +637,20 @@ class __TwigTemplate_d6df6519036cd1b52a7160ed2b3094e786956a6b9bde32afa02548ec029
 
         <!-- Main content -->
         <section class=\"content\">
-            <!-- Info boxes -->
-            <div class=\"row\">
-                <div class=\"col-md-3 col-sm-6 col-xs-12\">
-                    <div class=\"info-box\">
-                        <span class=\"info-box-icon bg-aqua\"><i class=\"ion ion-ios-gear-outline\"></i></span>
 
-                        <div class=\"info-box-content\">
-                            <span class=\"info-box-text\">CPU Traffic</span>
-                            <span class=\"info-box-number\">90<small>%</small></span>
-                        </div>
-                        <!-- /.info-box-content -->
-                    </div>
-                    <!-- /.info-box -->
-                </div>
-                <!-- /.col -->
-                <div class=\"col-md-3 col-sm-6 col-xs-12\">
-                    <div class=\"info-box\">
-                        <span class=\"info-box-icon bg-red\"><i class=\"fa fa-google-plus\"></i></span>
-
-                        <div class=\"info-box-content\">
-                            <span class=\"info-box-text\">Likes</span>
-                            <span class=\"info-box-number\">41,410</span>
-                        </div>
-                        <!-- /.info-box-content -->
-                    </div>
-                    <!-- /.info-box -->
-                </div>
-                <!-- /.col -->
-
-                <!-- fix for small devices only -->
-                <div class=\"clearfix visible-sm-block\"></div>
-
-                <div class=\"col-md-3 col-sm-6 col-xs-12\">
-                    <div class=\"info-box\">
-                        <span class=\"info-box-icon bg-green\"><i class=\"ion ion-ios-cart-outline\"></i></span>
-
-                        <div class=\"info-box-content\">
-                            <span class=\"info-box-text\">Sales</span>
-                            <span class=\"info-box-number\">760</span>
-                        </div>
-                        <!-- /.info-box-content -->
-                    </div>
-                    <!-- /.info-box -->
-                </div>
-                <!-- /.col -->
-                <div class=\"col-md-3 col-sm-6 col-xs-12\">
-                    <div class=\"info-box\">
-                        <span class=\"info-box-icon bg-yellow\"><i class=\"ion ion-ios-people-outline\"></i></span>
-
-                        <div class=\"info-box-content\">
-                            <span class=\"info-box-text\">New Members</span>
-                            <span class=\"info-box-number\">2,000</span>
-                        </div>
-                        <!-- /.info-box-content -->
-                    </div>
-                    <!-- /.info-box -->
-                </div>
-                <!-- /.col -->
-            </div>
-            <!-- /.row -->
-
+            ";
+        // line 430
+        $this->displayBlock('infobox', $context, $blocks);
+        // line 431
+        echo "
             <!-- Main row -->
             <!-- Main row -->
             <div class=\"row\">
 
                 ";
-        // line 494
+        // line 436
         $this->displayBlock('body', $context, $blocks);
-        // line 495
+        // line 437
         echo "
             </div>
             <!-- /.row (main row) -->
@@ -818,7 +764,7 @@ class __TwigTemplate_d6df6519036cd1b52a7160ed2b3094e786956a6b9bde32afa02548ec029
 <!-- ./wrapper -->
 <!-- jQuery 2.2.3 -->
 <script src=\"";
-        // line 607
+        // line 549
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("profile/plugins/jQuery/jquery-2.2.3.min.js"), "html", null, true);
         echo "\"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -829,117 +775,134 @@ class __TwigTemplate_d6df6519036cd1b52a7160ed2b3094e786956a6b9bde32afa02548ec029
 </script>
 <!-- Bootstrap 3.3.6 -->
 <script src=\"";
-        // line 615
+        // line 557
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("profile/bootstrap/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
 <!-- Morris.js charts -->
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js\"></script>
 <script src=\"";
-        // line 618
+        // line 560
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("profile/plugins/morris/morris.min.js"), "html", null, true);
         echo "\"></script>
 <!-- Sparkline -->
 <script src=\"";
-        // line 620
+        // line 562
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("profile/plugins/sparkline/jquery.sparkline.min.js"), "html", null, true);
         echo "\"></script>
 <!-- jvectormap -->
 <script src=\"";
-        // line 622
+        // line 564
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("profile/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 623
+        // line 565
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("profile/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"), "html", null, true);
         echo "\"></script>
 <!-- jQuery Knob Chart -->
 <script src=\"";
-        // line 625
+        // line 567
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("profile/plugins/knob/jquery.knob.js"), "html", null, true);
         echo "\"></script>
 <!-- daterangepicker -->
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js\"></script>
 <script src=\"";
-        // line 628
+        // line 570
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("profile/plugins/daterangepicker/daterangepicker.js"), "html", null, true);
         echo "\"></script>
 <!-- datepicker -->
 <script src=\"";
-        // line 630
+        // line 572
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("profile/plugins/datepicker/bootstrap-datepicker.js"), "html", null, true);
         echo "\"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src=\"";
-        // line 632
+        // line 574
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("profile/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"), "html", null, true);
         echo "\"></script>
 <!-- Slimscroll -->
 <script src=\"";
-        // line 634
+        // line 576
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("profile/plugins/slimScroll/jquery.slimscroll.min.js"), "html", null, true);
         echo "\"></script>
 <!-- FastClick -->
 <script src=\"";
-        // line 636
+        // line 578
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("profile/plugins/fastclick/fastclick.js"), "html", null, true);
         echo "\"></script>
 <!-- AdminLTE App -->
 <script src=\"";
-        // line 638
+        // line 580
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("profile/dist/js/app.min.js"), "html", null, true);
         echo "\"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src=\"";
-        // line 640
+        // line 582
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("profile/dist/js/pages/dashboard.js"), "html", null, true);
         echo "\"></script>
 <!-- AdminLTE for demo purposes -->
 <script src=\"";
-        // line 642
+        // line 584
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("profile/dist/js/demo.js"), "html", null, true);
         echo "\"></script>
 </body>
 </html>";
         
-        $__internal_b06f1ecc89c424f7e30dd97f06d0604bb4fdcc78e94edf05df79662880a02e6a->leave($__internal_b06f1ecc89c424f7e30dd97f06d0604bb4fdcc78e94edf05df79662880a02e6a_prof);
+        $__internal_e7617fefa16d6f4d9e49380673996675b7cebc9f9eb6a272fc52c29004e5a334->leave($__internal_e7617fefa16d6f4d9e49380673996675b7cebc9f9eb6a272fc52c29004e5a334_prof);
 
         
-        $__internal_3619258546bc7f9500759bf275803f7ecebccebf7cd4c6ee74c817ae4f928879->leave($__internal_3619258546bc7f9500759bf275803f7ecebccebf7cd4c6ee74c817ae4f928879_prof);
+        $__internal_c8c6cf37cd3c4deec943761949c40ffc31acc39fe938a01517cc4bd31b078717->leave($__internal_c8c6cf37cd3c4deec943761949c40ffc31acc39fe938a01517cc4bd31b078717_prof);
 
     }
 
     // line 6
     public function block_title($context, array $blocks = array())
     {
-        $__internal_abbcccc7e602c540e87ace4b68caf2b1d6a142745b1e63f81294516b6d54194f = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_abbcccc7e602c540e87ace4b68caf2b1d6a142745b1e63f81294516b6d54194f->enter($__internal_abbcccc7e602c540e87ace4b68caf2b1d6a142745b1e63f81294516b6d54194f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_e899f940c2cc3a7e6d882525738686410aee05a16dc60980188e2c7c389eca32 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_e899f940c2cc3a7e6d882525738686410aee05a16dc60980188e2c7c389eca32->enter($__internal_e899f940c2cc3a7e6d882525738686410aee05a16dc60980188e2c7c389eca32_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        $__internal_276dd2091be24425f6a8520c0e3679a95ad8973f40d8c242c1d8672b1721a47a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_276dd2091be24425f6a8520c0e3679a95ad8973f40d8c242c1d8672b1721a47a->enter($__internal_276dd2091be24425f6a8520c0e3679a95ad8973f40d8c242c1d8672b1721a47a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_68e0bd1cf54e7efa7c67a23a805700efaf5de661076a3ce30c669b17d593aa34 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_68e0bd1cf54e7efa7c67a23a805700efaf5de661076a3ce30c669b17d593aa34->enter($__internal_68e0bd1cf54e7efa7c67a23a805700efaf5de661076a3ce30c669b17d593aa34_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "Todo Dashboard";
         
-        $__internal_276dd2091be24425f6a8520c0e3679a95ad8973f40d8c242c1d8672b1721a47a->leave($__internal_276dd2091be24425f6a8520c0e3679a95ad8973f40d8c242c1d8672b1721a47a_prof);
+        $__internal_68e0bd1cf54e7efa7c67a23a805700efaf5de661076a3ce30c669b17d593aa34->leave($__internal_68e0bd1cf54e7efa7c67a23a805700efaf5de661076a3ce30c669b17d593aa34_prof);
 
         
-        $__internal_abbcccc7e602c540e87ace4b68caf2b1d6a142745b1e63f81294516b6d54194f->leave($__internal_abbcccc7e602c540e87ace4b68caf2b1d6a142745b1e63f81294516b6d54194f_prof);
+        $__internal_e899f940c2cc3a7e6d882525738686410aee05a16dc60980188e2c7c389eca32->leave($__internal_e899f940c2cc3a7e6d882525738686410aee05a16dc60980188e2c7c389eca32_prof);
 
     }
 
-    // line 494
+    // line 430
+    public function block_infobox($context, array $blocks = array())
+    {
+        $__internal_f017af7f6ec5641a5691ed7b96478935ddcef5a7e9cd63f2717a92cb0e457d1c = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_f017af7f6ec5641a5691ed7b96478935ddcef5a7e9cd63f2717a92cb0e457d1c->enter($__internal_f017af7f6ec5641a5691ed7b96478935ddcef5a7e9cd63f2717a92cb0e457d1c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "infobox"));
+
+        $__internal_dc14f80cfcefae6e1b65166e1239b3f2e582760946a19e59ebcf3ae8bae4b4ef = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_dc14f80cfcefae6e1b65166e1239b3f2e582760946a19e59ebcf3ae8bae4b4ef->enter($__internal_dc14f80cfcefae6e1b65166e1239b3f2e582760946a19e59ebcf3ae8bae4b4ef_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "infobox"));
+
+        
+        $__internal_dc14f80cfcefae6e1b65166e1239b3f2e582760946a19e59ebcf3ae8bae4b4ef->leave($__internal_dc14f80cfcefae6e1b65166e1239b3f2e582760946a19e59ebcf3ae8bae4b4ef_prof);
+
+        
+        $__internal_f017af7f6ec5641a5691ed7b96478935ddcef5a7e9cd63f2717a92cb0e457d1c->leave($__internal_f017af7f6ec5641a5691ed7b96478935ddcef5a7e9cd63f2717a92cb0e457d1c_prof);
+
+    }
+
+    // line 436
     public function block_body($context, array $blocks = array())
     {
-        $__internal_7564f684bb19971fecd2de848650124d60765685ee9d8d44c1c6e18491515a20 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_7564f684bb19971fecd2de848650124d60765685ee9d8d44c1c6e18491515a20->enter($__internal_7564f684bb19971fecd2de848650124d60765685ee9d8d44c1c6e18491515a20_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_bdbbcf4ddef2a78309558e5bcab7ba42f38ade8838f880ecc177d3cbf18d609f = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_bdbbcf4ddef2a78309558e5bcab7ba42f38ade8838f880ecc177d3cbf18d609f->enter($__internal_bdbbcf4ddef2a78309558e5bcab7ba42f38ade8838f880ecc177d3cbf18d609f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_5c204baf5eeeb08ad03913d4f40730bb927dc6f87e7d2baf6e4078735455de2d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_5c204baf5eeeb08ad03913d4f40730bb927dc6f87e7d2baf6e4078735455de2d->enter($__internal_5c204baf5eeeb08ad03913d4f40730bb927dc6f87e7d2baf6e4078735455de2d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
-
-        
-        $__internal_5c204baf5eeeb08ad03913d4f40730bb927dc6f87e7d2baf6e4078735455de2d->leave($__internal_5c204baf5eeeb08ad03913d4f40730bb927dc6f87e7d2baf6e4078735455de2d_prof);
+        $__internal_af8fcac4c471a444e68915bc641f065a0ab9e83dd60d47f13dc566febbf5cfb5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_af8fcac4c471a444e68915bc641f065a0ab9e83dd60d47f13dc566febbf5cfb5->enter($__internal_af8fcac4c471a444e68915bc641f065a0ab9e83dd60d47f13dc566febbf5cfb5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         
-        $__internal_7564f684bb19971fecd2de848650124d60765685ee9d8d44c1c6e18491515a20->leave($__internal_7564f684bb19971fecd2de848650124d60765685ee9d8d44c1c6e18491515a20_prof);
+        $__internal_af8fcac4c471a444e68915bc641f065a0ab9e83dd60d47f13dc566febbf5cfb5->leave($__internal_af8fcac4c471a444e68915bc641f065a0ab9e83dd60d47f13dc566febbf5cfb5_prof);
+
+        
+        $__internal_bdbbcf4ddef2a78309558e5bcab7ba42f38ade8838f880ecc177d3cbf18d609f->leave($__internal_bdbbcf4ddef2a78309558e5bcab7ba42f38ade8838f880ecc177d3cbf18d609f_prof);
 
     }
 
@@ -955,7 +918,7 @@ class __TwigTemplate_d6df6519036cd1b52a7160ed2b3094e786956a6b9bde32afa02548ec029
 
     public function getDebugInfo()
     {
-        return array (  930 => 494,  912 => 6,  899 => 642,  894 => 640,  889 => 638,  884 => 636,  879 => 634,  874 => 632,  869 => 630,  864 => 628,  858 => 625,  853 => 623,  849 => 622,  844 => 620,  839 => 618,  833 => 615,  822 => 607,  708 => 495,  706 => 494,  515 => 306,  509 => 303,  480 => 276,  478 => 275,  476 => 274,  474 => 273,  472 => 272,  470 => 271,  468 => 270,  466 => 269,  464 => 268,  462 => 267,  460 => 266,  458 => 265,  456 => 264,  454 => 263,  446 => 257,  440 => 254,  432 => 249,  428 => 248,  415 => 237,  413 => 236,  411 => 235,  409 => 234,  407 => 233,  405 => 232,  403 => 231,  401 => 230,  399 => 229,  397 => 228,  395 => 227,  393 => 226,  391 => 225,  389 => 224,  387 => 223,  385 => 222,  383 => 221,  381 => 220,  379 => 219,  377 => 218,  375 => 217,  373 => 216,  371 => 215,  369 => 214,  367 => 213,  365 => 212,  363 => 211,  361 => 210,  359 => 209,  357 => 208,  355 => 207,  353 => 206,  351 => 205,  349 => 204,  347 => 203,  345 => 202,  343 => 201,  341 => 200,  339 => 199,  337 => 198,  335 => 197,  333 => 196,  331 => 195,  329 => 194,  327 => 193,  325 => 192,  323 => 191,  321 => 190,  319 => 189,  317 => 188,  315 => 187,  313 => 186,  311 => 185,  309 => 184,  307 => 183,  289 => 166,  287 => 165,  285 => 164,  283 => 163,  281 => 162,  279 => 161,  277 => 160,  275 => 159,  273 => 158,  271 => 157,  269 => 156,  267 => 155,  265 => 154,  263 => 153,  261 => 152,  259 => 151,  257 => 150,  255 => 149,  253 => 148,  251 => 147,  249 => 146,  226 => 124,  224 => 123,  222 => 122,  220 => 121,  218 => 120,  216 => 119,  214 => 118,  212 => 117,  210 => 116,  208 => 115,  206 => 114,  204 => 113,  202 => 112,  200 => 111,  198 => 110,  196 => 109,  194 => 108,  192 => 107,  190 => 106,  188 => 105,  186 => 104,  184 => 103,  182 => 102,  180 => 101,  178 => 100,  176 => 99,  174 => 98,  172 => 97,  170 => 96,  168 => 95,  166 => 94,  164 => 93,  162 => 92,  160 => 91,  158 => 90,  156 => 89,  154 => 88,  152 => 87,  150 => 86,  148 => 85,  146 => 84,  144 => 83,  142 => 82,  140 => 81,  138 => 80,  136 => 79,  134 => 78,  132 => 77,  130 => 76,  128 => 75,  126 => 74,  124 => 73,  122 => 72,  120 => 71,  118 => 70,  116 => 69,  114 => 68,  112 => 67,  110 => 66,  108 => 65,  106 => 64,  61 => 21,  55 => 18,  50 => 16,  41 => 10,  34 => 6,  27 => 1,);
+        return array (  893 => 436,  876 => 430,  858 => 6,  845 => 584,  840 => 582,  835 => 580,  830 => 578,  825 => 576,  820 => 574,  815 => 572,  810 => 570,  804 => 567,  799 => 565,  795 => 564,  790 => 562,  785 => 560,  779 => 557,  768 => 549,  654 => 437,  652 => 436,  645 => 431,  643 => 430,  516 => 306,  510 => 303,  481 => 276,  479 => 275,  477 => 274,  475 => 273,  473 => 272,  471 => 271,  469 => 270,  467 => 269,  465 => 268,  463 => 267,  461 => 266,  459 => 265,  457 => 264,  455 => 263,  447 => 257,  441 => 254,  433 => 249,  429 => 248,  416 => 237,  414 => 236,  412 => 235,  410 => 234,  408 => 233,  406 => 232,  404 => 231,  402 => 230,  400 => 229,  398 => 228,  396 => 227,  394 => 226,  392 => 225,  390 => 224,  388 => 223,  386 => 222,  384 => 221,  382 => 220,  380 => 219,  378 => 218,  376 => 217,  374 => 216,  372 => 215,  370 => 214,  368 => 213,  366 => 212,  364 => 211,  362 => 210,  360 => 209,  358 => 208,  356 => 207,  354 => 206,  352 => 205,  350 => 204,  348 => 203,  346 => 202,  344 => 201,  342 => 200,  340 => 199,  338 => 198,  336 => 197,  334 => 196,  332 => 195,  330 => 194,  328 => 193,  326 => 192,  324 => 191,  322 => 190,  320 => 189,  318 => 188,  316 => 187,  314 => 186,  312 => 185,  310 => 184,  308 => 183,  290 => 166,  288 => 165,  286 => 164,  284 => 163,  282 => 162,  280 => 161,  278 => 160,  276 => 159,  274 => 158,  272 => 157,  270 => 156,  268 => 155,  266 => 154,  264 => 153,  262 => 152,  260 => 151,  258 => 150,  256 => 149,  254 => 148,  252 => 147,  250 => 146,  227 => 124,  225 => 123,  223 => 122,  221 => 121,  219 => 120,  217 => 119,  215 => 118,  213 => 117,  211 => 116,  209 => 115,  207 => 114,  205 => 113,  203 => 112,  201 => 111,  199 => 110,  197 => 109,  195 => 108,  193 => 107,  191 => 106,  189 => 105,  187 => 104,  185 => 103,  183 => 102,  181 => 101,  179 => 100,  177 => 99,  175 => 98,  173 => 97,  171 => 96,  169 => 95,  167 => 94,  165 => 93,  163 => 92,  161 => 91,  159 => 90,  157 => 89,  155 => 88,  153 => 87,  151 => 86,  149 => 85,  147 => 84,  145 => 83,  143 => 82,  141 => 81,  139 => 80,  137 => 79,  135 => 78,  133 => 77,  131 => 76,  129 => 75,  127 => 74,  125 => 73,  123 => 72,  121 => 71,  119 => 70,  117 => 69,  115 => 68,  113 => 67,  111 => 66,  109 => 65,  107 => 64,  62 => 21,  56 => 18,  51 => 16,  42 => 10,  35 => 6,  28 => 1,);
     }
 
     public function getSourceContext()
@@ -1388,66 +1351,8 @@ class __TwigTemplate_d6df6519036cd1b52a7160ed2b3094e786956a6b9bde32afa02548ec029
 
         <!-- Main content -->
         <section class=\"content\">
-            <!-- Info boxes -->
-            <div class=\"row\">
-                <div class=\"col-md-3 col-sm-6 col-xs-12\">
-                    <div class=\"info-box\">
-                        <span class=\"info-box-icon bg-aqua\"><i class=\"ion ion-ios-gear-outline\"></i></span>
 
-                        <div class=\"info-box-content\">
-                            <span class=\"info-box-text\">CPU Traffic</span>
-                            <span class=\"info-box-number\">90<small>%</small></span>
-                        </div>
-                        <!-- /.info-box-content -->
-                    </div>
-                    <!-- /.info-box -->
-                </div>
-                <!-- /.col -->
-                <div class=\"col-md-3 col-sm-6 col-xs-12\">
-                    <div class=\"info-box\">
-                        <span class=\"info-box-icon bg-red\"><i class=\"fa fa-google-plus\"></i></span>
-
-                        <div class=\"info-box-content\">
-                            <span class=\"info-box-text\">Likes</span>
-                            <span class=\"info-box-number\">41,410</span>
-                        </div>
-                        <!-- /.info-box-content -->
-                    </div>
-                    <!-- /.info-box -->
-                </div>
-                <!-- /.col -->
-
-                <!-- fix for small devices only -->
-                <div class=\"clearfix visible-sm-block\"></div>
-
-                <div class=\"col-md-3 col-sm-6 col-xs-12\">
-                    <div class=\"info-box\">
-                        <span class=\"info-box-icon bg-green\"><i class=\"ion ion-ios-cart-outline\"></i></span>
-
-                        <div class=\"info-box-content\">
-                            <span class=\"info-box-text\">Sales</span>
-                            <span class=\"info-box-number\">760</span>
-                        </div>
-                        <!-- /.info-box-content -->
-                    </div>
-                    <!-- /.info-box -->
-                </div>
-                <!-- /.col -->
-                <div class=\"col-md-3 col-sm-6 col-xs-12\">
-                    <div class=\"info-box\">
-                        <span class=\"info-box-icon bg-yellow\"><i class=\"ion ion-ios-people-outline\"></i></span>
-
-                        <div class=\"info-box-content\">
-                            <span class=\"info-box-text\">New Members</span>
-                            <span class=\"info-box-number\">2,000</span>
-                        </div>
-                        <!-- /.info-box-content -->
-                    </div>
-                    <!-- /.info-box -->
-                </div>
-                <!-- /.col -->
-            </div>
-            <!-- /.row -->
+            {% block infobox %}{% endblock %}
 
             <!-- Main row -->
             <!-- Main row -->
@@ -1603,6 +1508,6 @@ class __TwigTemplate_d6df6519036cd1b52a7160ed2b3094e786956a6b9bde32afa02548ec029
 <!-- AdminLTE for demo purposes -->
 <script src=\"{{ asset('profile/dist/js/demo.js') }}\"></script>
 </body>
-</html>", "profile/base.html.twig", "/home/emas/Projects/todolist/app/Resources/views/profile/base.html.twig");
+</html>", "profile/base.html.twig", "/home/emas/Projects/dd-project/app/Resources/views/profile/base.html.twig");
     }
 }
