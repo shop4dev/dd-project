@@ -6,55 +6,79 @@
 
 {% block body %}
 
-    <!-- /.login-logo -->
-    <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
-
-        <form role="form" method="POST" action="{{ path('security_login_check') }}">
-            {% if error %}
-                <div class="alert alert-danger">
-                    {{ error.messageKey|trans(error.messageData) }}
+  <!-- navigation section -->
+        <section class="navbar navbar-fixed-top custom-navbar" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon icon-bar"></span>
+                        <span class="icon icon-bar"></span>
+                        <span class="icon icon-bar"></span>
+                    </button>
+                    <a href="/" class="navbar-brand">myTasks</a>
                 </div>
-            {% endif %}
-            <div class="form-group has-feedback">
-                <input id="email" type="email" class="form-control" name="_email" value="{{ last_username }}" placeholder="Email">
-                {#<input type="email" class="form-control" placeholder="Email">#}
-                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
-                <input id="password" type="password" class="form-control" name="_password" placeholder="Password">
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div>
-            <div class="row">
-                {#<div class="col-xs-8">#}
-                    {#<div class="checkbox icheck">#}
-                        {#<label>#}
-                            {#<input type="checkbox"> Remember Me#}
-                        {#</label>#}
-                    {#</div>#}
-                {#</div>#}
-                <!-- /.col -->
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/" class="smoothScroll">HOME</a></li>
+                        <li><a href="/login" class="">SING IN</a></li>
+                        <li><a href="/register" class="">SING UP</a></li>
+                    </ul>
                 </div>
-                <!-- /.col -->
             </div>
-        </form>
+        </section>
 
-        <div class="social-auth-links text-center">
-            <p>- OR -</p>
-            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-                Facebook</a>
-            <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-                Google+</a>
-        </div>
-        <!-- /.social-auth-links -->
+        <!-- /.login-logo -->
+        <section id='home'>
+            <div class="login-box-body">
+                <p class="login-box-msg">Sign in to start your session</p>
 
-        <a href="#">I forgot my password</a><br>
-        <a href="/register" class="text-center">Register a new membership</a>
+                <form role="form" method="POST" action="{{ path('security_login_check') }}">
+                    {% if error %}
+                        <div class="alert alert-danger">
+                            {{ error.messageKey|trans(error.messageData) }}
+                        </div>
+                    {% endif %}
+                    <div class="form-group has-feedback">
+                        <input id="email" type="email" class="form-control" name="_email" value="{{ last_username }}" placeholder="Email">
+                        {#<input type="email" class="form-control" placeholder="Email">#}
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input id="password" type="password" class="form-control" name="_password" placeholder="Password">
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="row">
+                        {#<div class="col-xs-8">#}
+                            {#<div class="checkbox icheck">#}
+                                {#<label>#}
+                                    {#<input type="checkbox"> Remember Me#}
+                                {#</label>#}
+                            {#</div>#}
+                        {#</div>#}
+                        <!-- /.col -->
+                        <div class="col-xs-4">
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
 
-    </div>
-    <!-- /.login-box-body -->
+                <div class="social-auth-links text-center">
+                    <p>- OR -</p>
+                    <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
+                        Facebook</a>
+                    <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
+                        Google+</a>
+                </div>
+                <!-- /.social-auth-links -->
+
+                <a href="#">I forgot my password</a><br>
+                <a href="/register" class="text-center">Register a new membership</a>
+
+            </div>
+            <!-- /.login-box-body -->		
+    </section>
+
 {% endblock %}
 
 {% block javascript %}
@@ -79,4 +103,5 @@
             });
         });
     </script>
+
 {% endblock %}

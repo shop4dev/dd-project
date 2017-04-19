@@ -161,19 +161,16 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'todo_create')), array (  '_controller' => 'AppBundle\\Controller\\TodoController::createAction',));
             }
 
-        }
-
-        if (0 === strpos($pathinfo, '/todo')) {
             // todo_edit
-            if (0 === strpos($pathinfo, '/todo/edit') && preg_match('#^/todo/edit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            if (0 === strpos($pathinfo, '/profile/edit') && preg_match('#^/profile/edit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'todo_edit')), array (  '_controller' => 'AppBundle\\Controller\\TodoController::editAction',));
             }
 
-            // todo_details
-            if (0 === strpos($pathinfo, '/todo/details') && preg_match('#^/todo/details/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'todo_details')), array (  '_controller' => 'AppBundle\\Controller\\TodoController::detailsAction',));
-            }
+        }
 
+        // todo_details
+        if (0 === strpos($pathinfo, '/todo/details') && preg_match('#^/todo/details/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'todo_details')), array (  '_controller' => 'AppBundle\\Controller\\TodoController::detailsAction',));
         }
 
         if (0 === strpos($pathinfo, '/profile')) {
