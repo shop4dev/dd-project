@@ -145,6 +145,8 @@ class TodoController extends Controller
             $todo->setDueDate($due_date);
             $todo->setCreateDate($now);
             $todo->setToList($tolist);
+            $todo->setProgress('100');
+            $todo->setStatus(0);
 
             $em = $this->getDoctrine()->getManager();
 
@@ -234,7 +236,7 @@ class TodoController extends Controller
                 'Todo Changed'
             );
 
-            return $this->redirectToRoute('todo_list');
+            return $this->redirectToRoute('welcome');
         }
 
         return $this->render('todo/edit.html.twig', array(
