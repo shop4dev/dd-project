@@ -55,6 +55,21 @@ class Todo
     private $priority;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="progress", type="string", length=255)
+     */
+    private $progress;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=255)
+     */
+    private $status;
+
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="due_date", type="datetime")
@@ -174,6 +189,55 @@ class Todo
     {
         return $this->priority;
     }
+
+     /**
+     * Set progress
+     *
+     * @param string $progress
+     *
+     * @return Todo
+     */
+    public function setProgress($progress)
+    {
+        $this->progress = $progress;
+
+        return $this;
+    }
+
+    /**
+     * Get progress
+     *
+     * @return string
+     */
+    public function getProgress()
+    {
+        return $this->progress;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string status
+     *
+     * @return Todo
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get progress
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
 
     /**
      * Set dueDate

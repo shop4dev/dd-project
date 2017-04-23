@@ -53,13 +53,15 @@ class TodoController extends Controller
             $todoCount = $todoCount + count($todos);
             $data[$list->getId()] = $todos;
         }
+        $time = new \DateTime();
 
         return $this->render('profile/Default/index.html.twig', array(
             'todo_count' => $todoCount,
             'user_count' => count($users),
             'all_count' => count($allTodos),
             'lists' => $lists,
-            'data' => $data
+            'data' => $data,
+            'time' => $time
         ));
     }
     /**
@@ -184,6 +186,9 @@ class TodoController extends Controller
             ->add('category', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('description', TextareaType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('priority', ChoiceType::class, array('choices' => array('Low' => 'Low', 'Normal' => 'Normal', 'High' => 'High'), 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('progress', ChoiceType::class, array('choices' => array('0%' => '0%', '10%' => '10%', '20%' => '20%', '30%' => '30%',
+                '40%' => '40%', '50%' => '50%', '60%' => '60%', '70%' => '70%', '80%' => '80%', '90%' => '90%', '100%' => '100%'),
+                'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('due_date', DateTimeType::class, array('attr' => array('class' => 'formcontrol', 'style' => 'margin-bottom:15px')))
             ->add('save', SubmitType::class, array('label' => 'Update Todo', 'attr' => array('class' => 'btn btn-primary', 'style' => 'margin-bottom:15px')))
             ->getForm();
@@ -198,6 +203,7 @@ class TodoController extends Controller
             $description= $form['description']->getData();
             $priority = $form['priority']->getData();
             $due_date = $form['due_date']->getData();
+            $progress = $form['progress']->getData();
 
             $now = new\DateTime('now');
 
@@ -210,6 +216,16 @@ class TodoController extends Controller
             $todo->setPriority($priority);
             $todo->setDueDate($due_date);
             $todo->setCreateDate($now);
+            $todo->setProgress($progress);
+            
+            if($progress==="100%")
+            {
+                $todo->setStatus("Completed");
+            }
+            elseif ($progress!="0%")
+            {
+                $todo->setStatus("In progress");
+            }
 
             $em->flush();
 

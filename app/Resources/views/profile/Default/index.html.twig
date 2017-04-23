@@ -99,7 +99,36 @@
                         <!-- todo text -->
                         <span class="text">{{ todo.name }}</span>
                         <!-- Emphasis label -->
-                        <small class="label label-danger"><i class="fa fa-clock-o"></i></small>
+
+
+                        {% set difference1 = date(todo.dueDate).diff(date(todo.createDate)) %}
+                        {% set currentTime = 'now'|date("m/d/Y") %}
+
+                        {% set difference2 = date(todo.dueDate).diff(date(currentTime)) %}
+                        {% set leftDays1 = difference1.days %}
+                        {% set leftDays2 = difference2.days %}
+                        {% if leftDays1 > 0 %}
+                            {% set ratio = leftDays2/leftDays1 %}
+                            {#{{ ratio }}#}
+                            {#{{ leftDays1 }} /#}
+                            {#{{ leftDays2 }}#}
+                            {% if ratio <= 0.33 %}
+                                <small class="label label-danger"><i class="fa fa-clock-o"></i></small>
+                            {% elseif ratio <= 0.66 %}
+                                <small class="label label-warning"><i class="fa fa-clock-o"></i></small>
+                            {% else %}
+                                <small class="label label-success"><i class="fa fa-clock-o"></i></small>
+                            {% endif %}
+                        {% else %}
+                            <small class="label label-danger"><i class="fa fa-clock-o"></i></small>
+                        {% endif %}
+
+
+
+                        {#{{difference1|date("%d'%h'%i'%s''")}}#}
+
+
+
                         <!-- General tools such as edit or delete-->
                         <div class="tools">
                             <i class="fa fa-edit" onClick="window.open('/profile/edit/{{ todo.id }}','pagename','resizable,height=500,width=400'); return false;"></i>
