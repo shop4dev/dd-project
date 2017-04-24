@@ -45,15 +45,20 @@ class User implements UserInterface
      */
     protected $password;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Members", mappedBy="user")
+     */
+    private $memberss;
 
     /**
-     * @ORM\OneToMany(targetEntity="ToList", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="ToList", mappedBy="user", cascade={"remove"})
      */
     private $tolists;
 
     public function __construct()
     {
         $this->tolists = new ArrayCollection();
+        $this->memberss = new ArrayCollection();
     }
 
     public function eraseCredentials()
@@ -163,5 +168,21 @@ class User implements UserInterface
     public function getToLists()
     {
         return $this->tolists;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMemberss()
+    {
+        return $this->memberss;
+    }
+
+    /**
+     * @param mixed $memberss
+     */
+    public function setMemberss($memberss)
+    {
+        $this->memberss = $memberss;
     }
 }

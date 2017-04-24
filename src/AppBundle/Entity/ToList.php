@@ -22,9 +22,15 @@ class ToList
     private $todos;
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="tolists")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=true)
      */
     private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Team", inversedBy="tolists")
+     * @ORM\JoinColumn(name="team_id", referencedColumnName="id", nullable=true)
+     */
+    private $team;
     /**
      * @var int
      *
@@ -137,5 +143,21 @@ class ToList
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTeam()
+    {
+        return $this->team;
+    }
+
+    /**
+     * @param mixed $team
+     */
+    public function setTeam($team)
+    {
+        $this->team = $team;
     }
 }
