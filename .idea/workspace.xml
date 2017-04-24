@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a245fa0-6e60-45dd-b414-44aab42c9426" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/pools/GywVr6ioIz/1/H/wiGOL0OVil+CtyF3AQbc" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/pools/GywVr6ioIz/C/W/1EIL24u53trQXQgZ1Lbt" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/pools/GywVr6ioIz/G/K/hPj2YH2+NFNGn9bSsVZU" afterPath="" />
@@ -256,7 +257,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/prod/classes.php" afterPath="$PROJECT_DIR$/var/cache/prod/classes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/prod/templates.php" afterPath="$PROJECT_DIR$/var/cache/prod/templates.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/logs/dev.log" afterPath="$PROJECT_DIR$/var/logs/dev.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/twig/twig/.gitignore" afterPath="$PROJECT_DIR$/vendor/twig/twig/.gitignore" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -301,11 +301,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/profile/Default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="104" column="42" lean-forward="false" selection-start-line="104" selection-start-column="31" selection-end-line="104" selection-end-column="42" />
+            <state relative-caret-position="414">
+              <caret line="111" column="65" lean-forward="false" selection-start-line="111" selection-start-column="30" selection-end-line="111" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -343,7 +343,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TodoController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TodoController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TodoController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2940">
@@ -460,8 +460,8 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Form/UserType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/todo/edit.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/ToList.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/profile/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/TodoController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/profile/Default/index.html.twig" />
       </list>
     </option>
   </component>
@@ -865,7 +865,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99776000" />
+    <option name="totallyTimeSpent" value="99842000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1537" height="912" extended-state="6" />
@@ -1253,14 +1253,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/profile/Default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="104" column="42" lean-forward="false" selection-start-line="104" selection-start-column="31" selection-end-line="104" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TodoController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2940">
@@ -1268,6 +1260,14 @@
           <folding>
             <element signature="e#40#66#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/profile/Default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="111" column="65" lean-forward="false" selection-start-line="111" selection-start-column="30" selection-end-line="111" selection-end-column="65" />
+          <folding />
         </state>
       </provider>
     </entry>
