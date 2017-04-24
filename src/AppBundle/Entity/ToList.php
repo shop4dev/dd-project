@@ -17,12 +17,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 class ToList
 {
     /**
-     * @ORM\OneToMany(targetEntity="Todo", mappedBy="tolist")
+     * @ORM\OneToMany(targetEntity="Todo", mappedBy="tolist", cascade={"remove"})
      */
     private $todos;
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="tolists")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $user;
     /**

@@ -7,4 +7,12 @@
     {{ form_widget(form) }}
     {{ form_end(form) }}
 
+    <script>
+        window.onunload = refreshParent;
+        function refreshParent() {
+            window.opener.location.reload();
+            window.close();
+        }
+    </script>
+
 {% endblock %}

@@ -109,6 +109,7 @@
                         {% set leftDays2 = difference2.days %}
                         {% if leftDays1 > 0 %}
                             {% set ratio = leftDays2/leftDays1 %}
+                            {{ todo.createDate|date("m/d/Y") }}
                             {#{{ ratio }}#}
                             {#{{ leftDays1 }} /#}
                             {#{{ leftDays2 }}#}

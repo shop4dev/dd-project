@@ -181,7 +181,7 @@ class TodoController extends Controller
         $todo->setDescription($todo->getDescription());
         $todo->setPriority($todo->getPriority());
         $todo->setDueDate($todo->getDueDate());
-        $todo->setCreateDate($now);
+        //$todo->setCreateDate($now);
 
         $form = $this->createFormBuilder($todo)
             ->add('name', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
@@ -207,7 +207,7 @@ class TodoController extends Controller
             $due_date = $form['due_date']->getData();
             $progress = $form['progress']->getData();
 
-            $now = new\DateTime('now');
+            //$now = new\DateTime('now');
 
             $em = $this->getDoctrine()->getManager();
             $todo = $em->getRepository('AppBundle:Todo')->find($id);
@@ -217,7 +217,7 @@ class TodoController extends Controller
             $todo->setDescription($description);
             $todo->setPriority($priority);
             $todo->setDueDate($due_date);
-            $todo->setCreateDate($now);
+            //$todo->setCreateDate($now);
             $todo->setProgress($progress);
             
             if($progress==="100%")

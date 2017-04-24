@@ -23,29 +23,29 @@ class __TwigTemplate_73e6108e8171ec510f9cef82e5f529bd6c8a044f967048e839856df92c6
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_b8606644f3f651a234810b561444bb047144b5cf5327b909938fe6ff08c6dd91 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_b8606644f3f651a234810b561444bb047144b5cf5327b909938fe6ff08c6dd91->enter($__internal_b8606644f3f651a234810b561444bb047144b5cf5327b909938fe6ff08c6dd91_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "profile/Default/index.html.twig"));
+        $__internal_40db2b1daf362afadf90deb1fa474c1df56f41743ecfa93f89ce8a93456e0c83 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_40db2b1daf362afadf90deb1fa474c1df56f41743ecfa93f89ce8a93456e0c83->enter($__internal_40db2b1daf362afadf90deb1fa474c1df56f41743ecfa93f89ce8a93456e0c83_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "profile/Default/index.html.twig"));
 
-        $__internal_9546986eaa5bad6a6645d9809b7124ee49c9a40d99f8a65ab86b30073a2944af = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_9546986eaa5bad6a6645d9809b7124ee49c9a40d99f8a65ab86b30073a2944af->enter($__internal_9546986eaa5bad6a6645d9809b7124ee49c9a40d99f8a65ab86b30073a2944af_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "profile/Default/index.html.twig"));
+        $__internal_710eaa6f03c7f9f10288d5771d7a290cc43a1c8f972387e11c5433dbadbf9d63 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_710eaa6f03c7f9f10288d5771d7a290cc43a1c8f972387e11c5433dbadbf9d63->enter($__internal_710eaa6f03c7f9f10288d5771d7a290cc43a1c8f972387e11c5433dbadbf9d63_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "profile/Default/index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_b8606644f3f651a234810b561444bb047144b5cf5327b909938fe6ff08c6dd91->leave($__internal_b8606644f3f651a234810b561444bb047144b5cf5327b909938fe6ff08c6dd91_prof);
+        $__internal_40db2b1daf362afadf90deb1fa474c1df56f41743ecfa93f89ce8a93456e0c83->leave($__internal_40db2b1daf362afadf90deb1fa474c1df56f41743ecfa93f89ce8a93456e0c83_prof);
 
         
-        $__internal_9546986eaa5bad6a6645d9809b7124ee49c9a40d99f8a65ab86b30073a2944af->leave($__internal_9546986eaa5bad6a6645d9809b7124ee49c9a40d99f8a65ab86b30073a2944af_prof);
+        $__internal_710eaa6f03c7f9f10288d5771d7a290cc43a1c8f972387e11c5433dbadbf9d63->leave($__internal_710eaa6f03c7f9f10288d5771d7a290cc43a1c8f972387e11c5433dbadbf9d63_prof);
 
     }
 
     // line 3
     public function block_username($context, array $blocks = array())
     {
-        $__internal_1e91c9e58e2dbc121607a7372a5e45d6c09cafa4c23e72a32324fb6741687dc6 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_1e91c9e58e2dbc121607a7372a5e45d6c09cafa4c23e72a32324fb6741687dc6->enter($__internal_1e91c9e58e2dbc121607a7372a5e45d6c09cafa4c23e72a32324fb6741687dc6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "username"));
+        $__internal_6daaac7e910aa11e3397e404f0b1db64a92f87a5b4a40734adae6e37747f01d7 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_6daaac7e910aa11e3397e404f0b1db64a92f87a5b4a40734adae6e37747f01d7->enter($__internal_6daaac7e910aa11e3397e404f0b1db64a92f87a5b4a40734adae6e37747f01d7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "username"));
 
-        $__internal_54bd5ec98672f92a5fa8ca154859ada7c5f326480eda546e0b44bc906f817fc9 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_54bd5ec98672f92a5fa8ca154859ada7c5f326480eda546e0b44bc906f817fc9->enter($__internal_54bd5ec98672f92a5fa8ca154859ada7c5f326480eda546e0b44bc906f817fc9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "username"));
+        $__internal_b2d49c120ac4abb3aaec870c802a0be48d3970afef09d64c475b1e82a2f2cb43 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b2d49c120ac4abb3aaec870c802a0be48d3970afef09d64c475b1e82a2f2cb43->enter($__internal_b2d49c120ac4abb3aaec870c802a0be48d3970afef09d64c475b1e82a2f2cb43_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "username"));
 
         // line 4
         echo "    ";
@@ -57,21 +57,21 @@ class __TwigTemplate_73e6108e8171ec510f9cef82e5f529bd6c8a044f967048e839856df92c6
     ";
         }
         
-        $__internal_54bd5ec98672f92a5fa8ca154859ada7c5f326480eda546e0b44bc906f817fc9->leave($__internal_54bd5ec98672f92a5fa8ca154859ada7c5f326480eda546e0b44bc906f817fc9_prof);
+        $__internal_b2d49c120ac4abb3aaec870c802a0be48d3970afef09d64c475b1e82a2f2cb43->leave($__internal_b2d49c120ac4abb3aaec870c802a0be48d3970afef09d64c475b1e82a2f2cb43_prof);
 
         
-        $__internal_1e91c9e58e2dbc121607a7372a5e45d6c09cafa4c23e72a32324fb6741687dc6->leave($__internal_1e91c9e58e2dbc121607a7372a5e45d6c09cafa4c23e72a32324fb6741687dc6_prof);
+        $__internal_6daaac7e910aa11e3397e404f0b1db64a92f87a5b4a40734adae6e37747f01d7->leave($__internal_6daaac7e910aa11e3397e404f0b1db64a92f87a5b4a40734adae6e37747f01d7_prof);
 
     }
 
     // line 9
     public function block_infobox($context, array $blocks = array())
     {
-        $__internal_1bbb384353b854ff16822173004786f5bae83158f5f609345d667f0f55b988a7 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_1bbb384353b854ff16822173004786f5bae83158f5f609345d667f0f55b988a7->enter($__internal_1bbb384353b854ff16822173004786f5bae83158f5f609345d667f0f55b988a7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "infobox"));
+        $__internal_978ffbd79cf114d7bbad9cc14f46739a3768a66dad3c62c4341d1ccac32cee98 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_978ffbd79cf114d7bbad9cc14f46739a3768a66dad3c62c4341d1ccac32cee98->enter($__internal_978ffbd79cf114d7bbad9cc14f46739a3768a66dad3c62c4341d1ccac32cee98_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "infobox"));
 
-        $__internal_a6ed30238b08cc07f208d9e74d72559d6f9ba6f03ddf161962b1cb629c66469b = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_a6ed30238b08cc07f208d9e74d72559d6f9ba6f03ddf161962b1cb629c66469b->enter($__internal_a6ed30238b08cc07f208d9e74d72559d6f9ba6f03ddf161962b1cb629c66469b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "infobox"));
+        $__internal_03b6cbb2d4b7d4306f052cf52965cbf85ce6f74dc95fe95d076a9dbd39b5d090 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_03b6cbb2d4b7d4306f052cf52965cbf85ce6f74dc95fe95d076a9dbd39b5d090->enter($__internal_03b6cbb2d4b7d4306f052cf52965cbf85ce6f74dc95fe95d076a9dbd39b5d090_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "infobox"));
 
         // line 10
         echo "    <!-- Info boxes -->
@@ -144,21 +144,21 @@ class __TwigTemplate_73e6108e8171ec510f9cef82e5f529bd6c8a044f967048e839856df92c6
     <!-- /.row -->
 ";
         
-        $__internal_a6ed30238b08cc07f208d9e74d72559d6f9ba6f03ddf161962b1cb629c66469b->leave($__internal_a6ed30238b08cc07f208d9e74d72559d6f9ba6f03ddf161962b1cb629c66469b_prof);
+        $__internal_03b6cbb2d4b7d4306f052cf52965cbf85ce6f74dc95fe95d076a9dbd39b5d090->leave($__internal_03b6cbb2d4b7d4306f052cf52965cbf85ce6f74dc95fe95d076a9dbd39b5d090_prof);
 
         
-        $__internal_1bbb384353b854ff16822173004786f5bae83158f5f609345d667f0f55b988a7->leave($__internal_1bbb384353b854ff16822173004786f5bae83158f5f609345d667f0f55b988a7_prof);
+        $__internal_978ffbd79cf114d7bbad9cc14f46739a3768a66dad3c62c4341d1ccac32cee98->leave($__internal_978ffbd79cf114d7bbad9cc14f46739a3768a66dad3c62c4341d1ccac32cee98_prof);
 
     }
 
     // line 71
     public function block_body($context, array $blocks = array())
     {
-        $__internal_a3ea37ef1c25bae6c902cb10610660ce3cb6d13b2c71292888e48d8b2ec97d32 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_a3ea37ef1c25bae6c902cb10610660ce3cb6d13b2c71292888e48d8b2ec97d32->enter($__internal_a3ea37ef1c25bae6c902cb10610660ce3cb6d13b2c71292888e48d8b2ec97d32_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_bcfb37a1fc82a0ebb8537e62493f473b0a201da0d0f67d3dddf05e9af3424029 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_bcfb37a1fc82a0ebb8537e62493f473b0a201da0d0f67d3dddf05e9af3424029->enter($__internal_bcfb37a1fc82a0ebb8537e62493f473b0a201da0d0f67d3dddf05e9af3424029_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_3cff1dd0f2094bc57bf32a9c276e85bd88351ab8e37a9fb6705bf203efdf2ad7 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_3cff1dd0f2094bc57bf32a9c276e85bd88351ab8e37a9fb6705bf203efdf2ad7->enter($__internal_3cff1dd0f2094bc57bf32a9c276e85bd88351ab8e37a9fb6705bf203efdf2ad7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_abe61c89a27a48180b9671653ac0425b9720df07f3c9757fb4ead93677bd786e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_abe61c89a27a48180b9671653ac0425b9720df07f3c9757fb4ead93677bd786e->enter($__internal_abe61c89a27a48180b9671653ac0425b9720df07f3c9757fb4ead93677bd786e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 72
         echo "
@@ -237,50 +237,53 @@ class __TwigTemplate_73e6108e8171ec510f9cef82e5f529bd6c8a044f967048e839856df92c6
                     $context["ratio"] = ((isset($context["leftDays2"]) || array_key_exists("leftDays2", $context) ? $context["leftDays2"] : (function () { throw new Twig_Error_Runtime('Variable "leftDays2" does not exist.', 111, $this->getSourceContext()); })()) / (isset($context["leftDays1"]) || array_key_exists("leftDays1", $context) ? $context["leftDays1"] : (function () { throw new Twig_Error_Runtime('Variable "leftDays1" does not exist.', 111, $this->getSourceContext()); })()));
                     // line 112
                     echo "                            ";
-                    // line 113
-                    echo "                            ";
+                    echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["todo"], "createDate", array()), "m/d/Y"), "html", null, true);
+                    echo "
+                            ";
                     // line 114
                     echo "                            ";
                     // line 115
                     echo "                            ";
-                    if (((isset($context["ratio"]) || array_key_exists("ratio", $context) ? $context["ratio"] : (function () { throw new Twig_Error_Runtime('Variable "ratio" does not exist.', 115, $this->getSourceContext()); })()) <= 0.33)) {
-                        // line 116
+                    // line 116
+                    echo "                            ";
+                    if (((isset($context["ratio"]) || array_key_exists("ratio", $context) ? $context["ratio"] : (function () { throw new Twig_Error_Runtime('Variable "ratio" does not exist.', 116, $this->getSourceContext()); })()) <= 0.33)) {
+                        // line 117
                         echo "                                <small class=\"label label-danger\"><i class=\"fa fa-clock-o\"></i></small>
                             ";
-                    } elseif ((                    // line 117
-(isset($context["ratio"]) || array_key_exists("ratio", $context) ? $context["ratio"] : (function () { throw new Twig_Error_Runtime('Variable "ratio" does not exist.', 117, $this->getSourceContext()); })()) <= 0.66)) {
-                        // line 118
+                    } elseif ((                    // line 118
+(isset($context["ratio"]) || array_key_exists("ratio", $context) ? $context["ratio"] : (function () { throw new Twig_Error_Runtime('Variable "ratio" does not exist.', 118, $this->getSourceContext()); })()) <= 0.66)) {
+                        // line 119
                         echo "                                <small class=\"label label-warning\"><i class=\"fa fa-clock-o\"></i></small>
                             ";
                     } else {
-                        // line 120
+                        // line 121
                         echo "                                <small class=\"label label-success\"><i class=\"fa fa-clock-o\"></i></small>
                             ";
                     }
-                    // line 122
+                    // line 123
                     echo "                        ";
                 } else {
-                    // line 123
+                    // line 124
                     echo "                            <small class=\"label label-danger\"><i class=\"fa fa-clock-o\"></i></small>
                         ";
                 }
-                // line 125
+                // line 126
                 echo "
 
 
                         ";
-                // line 129
+                // line 130
                 echo "
 
 
                         <!-- General tools such as edit or delete-->
                         <div class=\"tools\">
                             <i class=\"fa fa-edit\" onClick=\"window.open('/profile/edit/";
-                // line 134
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["todo"], "id", array()), "html", null, true);
-                echo "','pagename','resizable,height=500,width=400'); return false;\"></i>
-                            <a href=\"/profile/delete/";
                 // line 135
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["todo"], "id", array()), "html", null, true);
+                echo "','pagename','resizable,height=500,width=400'); return false; \"></i>
+                            <a href=\"/profile/delete/";
+                // line 136
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["todo"], "id", array()), "html", null, true);
                 echo "\" style=\"color: #dd4b39\"><i class=\"fa fa-trash-o\"></i></a>
                         </div>
@@ -290,13 +293,13 @@ class __TwigTemplate_73e6108e8171ec510f9cef82e5f529bd6c8a044f967048e839856df92c6
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['todo'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 139
+            // line 140
             echo "            </ul>
         </div>
         <!-- /.box-body -->
         <div class=\"box-footer clearfix no-border\">
             <button type=\"button\" class=\"btn btn-default pull-right\" onClick=\"window.open('/profile/create/";
-            // line 143
+            // line 144
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["tolist"], "id", array()), "html", null, true);
             echo "','pagename','resizable,height=500,width=400'); return false;\"><i class=\"fa fa-plus\"></i> Add item</button>
         </div>
@@ -310,14 +313,14 @@ class __TwigTemplate_73e6108e8171ec510f9cef82e5f529bd6c8a044f967048e839856df92c6
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tolist'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 151
+        // line 152
         echo "
 <section class=\"col-lg-4 connectedSortable\">
 
     <button type=\"button\" class=\"btn btn-default pull-left\" onClick=\"window.open('/profile/list','pagename','resizable,height=230,width=370'); return false;\"><i class=\"fa fa-plus\"></i> Add new list</button>
 
     ";
-        // line 157
+        // line 158
         echo "
 </section>
 
@@ -332,23 +335,23 @@ class __TwigTemplate_73e6108e8171ec510f9cef82e5f529bd6c8a044f967048e839856df92c6
                     ...
                 </div>
                 ";
-        // line 171
-        echo "                    ";
         // line 172
         echo "                    ";
         // line 173
-        echo "                ";
+        echo "                    ";
         // line 174
+        echo "                ";
+        // line 175
         echo "            </div>
         </div>
     </div>
 
 ";
         
-        $__internal_3cff1dd0f2094bc57bf32a9c276e85bd88351ab8e37a9fb6705bf203efdf2ad7->leave($__internal_3cff1dd0f2094bc57bf32a9c276e85bd88351ab8e37a9fb6705bf203efdf2ad7_prof);
+        $__internal_abe61c89a27a48180b9671653ac0425b9720df07f3c9757fb4ead93677bd786e->leave($__internal_abe61c89a27a48180b9671653ac0425b9720df07f3c9757fb4ead93677bd786e_prof);
 
         
-        $__internal_a3ea37ef1c25bae6c902cb10610660ce3cb6d13b2c71292888e48d8b2ec97d32->leave($__internal_a3ea37ef1c25bae6c902cb10610660ce3cb6d13b2c71292888e48d8b2ec97d32_prof);
+        $__internal_bcfb37a1fc82a0ebb8537e62493f473b0a201da0d0f67d3dddf05e9af3424029->leave($__internal_bcfb37a1fc82a0ebb8537e62493f473b0a201da0d0f67d3dddf05e9af3424029_prof);
 
     }
 
@@ -364,7 +367,7 @@ class __TwigTemplate_73e6108e8171ec510f9cef82e5f529bd6c8a044f967048e839856df92c6
 
     public function getDebugInfo()
     {
-        return array (  342 => 174,  340 => 173,  338 => 172,  336 => 171,  321 => 157,  314 => 151,  300 => 143,  294 => 139,  284 => 135,  280 => 134,  273 => 129,  268 => 125,  264 => 123,  261 => 122,  257 => 120,  253 => 118,  251 => 117,  248 => 116,  245 => 115,  243 => 114,  241 => 113,  239 => 112,  236 => 111,  233 => 110,  230 => 109,  227 => 108,  225 => 107,  222 => 106,  219 => 105,  217 => 104,  210 => 100,  199 => 91,  195 => 90,  186 => 84,  180 => 81,  171 => 74,  167 => 73,  164 => 72,  155 => 71,  136 => 61,  119 => 47,  87 => 18,  77 => 10,  68 => 9,  54 => 5,  51 => 4,  42 => 3,  11 => 1,);
+        return array (  345 => 175,  343 => 174,  341 => 173,  339 => 172,  324 => 158,  317 => 152,  303 => 144,  297 => 140,  287 => 136,  283 => 135,  276 => 130,  271 => 126,  267 => 124,  264 => 123,  260 => 121,  256 => 119,  254 => 118,  251 => 117,  248 => 116,  246 => 115,  244 => 114,  239 => 112,  236 => 111,  233 => 110,  230 => 109,  227 => 108,  225 => 107,  222 => 106,  219 => 105,  217 => 104,  210 => 100,  199 => 91,  195 => 90,  186 => 84,  180 => 81,  171 => 74,  167 => 73,  164 => 72,  155 => 71,  136 => 61,  119 => 47,  87 => 18,  77 => 10,  68 => 9,  54 => 5,  51 => 4,  42 => 3,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -480,6 +483,7 @@ class __TwigTemplate_73e6108e8171ec510f9cef82e5f529bd6c8a044f967048e839856df92c6
                         {% set leftDays2 = difference2.days %}
                         {% if leftDays1 > 0 %}
                             {% set ratio = leftDays2/leftDays1 %}
+                            {{ todo.createDate|date(\"m/d/Y\") }}
                             {#{{ ratio }}#}
                             {#{{ leftDays1 }} /#}
                             {#{{ leftDays2 }}#}
@@ -502,7 +506,7 @@ class __TwigTemplate_73e6108e8171ec510f9cef82e5f529bd6c8a044f967048e839856df92c6
 
                         <!-- General tools such as edit or delete-->
                         <div class=\"tools\">
-                            <i class=\"fa fa-edit\" onClick=\"window.open('/profile/edit/{{ todo.id }}','pagename','resizable,height=500,width=400'); return false;\"></i>
+                            <i class=\"fa fa-edit\" onClick=\"window.open('/profile/edit/{{ todo.id }}','pagename','resizable,height=500,width=400'); return false; \"></i>
                             <a href=\"/profile/delete/{{ todo.id }}\" style=\"color: #dd4b39\"><i class=\"fa fa-trash-o\"></i></a>
                         </div>
                     </li>

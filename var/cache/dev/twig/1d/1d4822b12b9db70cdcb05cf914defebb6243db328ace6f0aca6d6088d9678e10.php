@@ -21,29 +21,29 @@ class __TwigTemplate_f625d4c0c911c41b73ecac76250c7ede7f4010a17e793f4891931697fb7
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_0558d8d3b732b1c431cf13c707fa8e43ecf983a48da4cd817f36fadeff0a1c98 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_0558d8d3b732b1c431cf13c707fa8e43ecf983a48da4cd817f36fadeff0a1c98->enter($__internal_0558d8d3b732b1c431cf13c707fa8e43ecf983a48da4cd817f36fadeff0a1c98_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "todo/edit.html.twig"));
+        $__internal_b5a41c7fb79b5bd5f11a7d585ca69e956f6c26f182d2b77d644b6581a022d14f = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_b5a41c7fb79b5bd5f11a7d585ca69e956f6c26f182d2b77d644b6581a022d14f->enter($__internal_b5a41c7fb79b5bd5f11a7d585ca69e956f6c26f182d2b77d644b6581a022d14f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "todo/edit.html.twig"));
 
-        $__internal_28ea1cad6c6018f5415e6c744b0449a92f7b7945af39de21d8cd03ff3a7aea2c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_28ea1cad6c6018f5415e6c744b0449a92f7b7945af39de21d8cd03ff3a7aea2c->enter($__internal_28ea1cad6c6018f5415e6c744b0449a92f7b7945af39de21d8cd03ff3a7aea2c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "todo/edit.html.twig"));
+        $__internal_45ff3bc76dcea4dd4c9e7c26fa51580b036d130bc64c12c24e2dd5ba6beb5a6c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_45ff3bc76dcea4dd4c9e7c26fa51580b036d130bc64c12c24e2dd5ba6beb5a6c->enter($__internal_45ff3bc76dcea4dd4c9e7c26fa51580b036d130bc64c12c24e2dd5ba6beb5a6c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "todo/edit.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_0558d8d3b732b1c431cf13c707fa8e43ecf983a48da4cd817f36fadeff0a1c98->leave($__internal_0558d8d3b732b1c431cf13c707fa8e43ecf983a48da4cd817f36fadeff0a1c98_prof);
+        $__internal_b5a41c7fb79b5bd5f11a7d585ca69e956f6c26f182d2b77d644b6581a022d14f->leave($__internal_b5a41c7fb79b5bd5f11a7d585ca69e956f6c26f182d2b77d644b6581a022d14f_prof);
 
         
-        $__internal_28ea1cad6c6018f5415e6c744b0449a92f7b7945af39de21d8cd03ff3a7aea2c->leave($__internal_28ea1cad6c6018f5415e6c744b0449a92f7b7945af39de21d8cd03ff3a7aea2c_prof);
+        $__internal_45ff3bc76dcea4dd4c9e7c26fa51580b036d130bc64c12c24e2dd5ba6beb5a6c->leave($__internal_45ff3bc76dcea4dd4c9e7c26fa51580b036d130bc64c12c24e2dd5ba6beb5a6c_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_e80cb79e75a875cb5735a154f12c611cdd64d7eb928faca340fbc4abcf8d02be = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_e80cb79e75a875cb5735a154f12c611cdd64d7eb928faca340fbc4abcf8d02be->enter($__internal_e80cb79e75a875cb5735a154f12c611cdd64d7eb928faca340fbc4abcf8d02be_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_a21e15a32c6ccb286fb5d0494ff7714cd2ac916d42e249361b87c152af563a14 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_a21e15a32c6ccb286fb5d0494ff7714cd2ac916d42e249361b87c152af563a14->enter($__internal_a21e15a32c6ccb286fb5d0494ff7714cd2ac916d42e249361b87c152af563a14_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_04940cb83d4c63916276045804d02754cd173ea0e317aa5194d06ed17fe067d0 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_04940cb83d4c63916276045804d02754cd173ea0e317aa5194d06ed17fe067d0->enter($__internal_04940cb83d4c63916276045804d02754cd173ea0e317aa5194d06ed17fe067d0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_fecab4149dd58d0b1dc1d9823b0f388020c7967ecc1bf36f4f6322a50b12c689 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_fecab4149dd58d0b1dc1d9823b0f388020c7967ecc1bf36f4f6322a50b12c689->enter($__internal_fecab4149dd58d0b1dc1d9823b0f388020c7967ecc1bf36f4f6322a50b12c689_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo "
@@ -61,12 +61,20 @@ class __TwigTemplate_f625d4c0c911c41b73ecac76250c7ede7f4010a17e793f4891931697fb7
         echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 8, $this->getSourceContext()); })()), 'form_end');
         echo "
 
+    <script>
+        window.onunload = refreshParent;
+        function refreshParent() {
+            window.opener.location.reload();
+            window.close();
+        }
+    </script>
+
 ";
         
-        $__internal_04940cb83d4c63916276045804d02754cd173ea0e317aa5194d06ed17fe067d0->leave($__internal_04940cb83d4c63916276045804d02754cd173ea0e317aa5194d06ed17fe067d0_prof);
+        $__internal_fecab4149dd58d0b1dc1d9823b0f388020c7967ecc1bf36f4f6322a50b12c689->leave($__internal_fecab4149dd58d0b1dc1d9823b0f388020c7967ecc1bf36f4f6322a50b12c689_prof);
 
         
-        $__internal_e80cb79e75a875cb5735a154f12c611cdd64d7eb928faca340fbc4abcf8d02be->leave($__internal_e80cb79e75a875cb5735a154f12c611cdd64d7eb928faca340fbc4abcf8d02be_prof);
+        $__internal_a21e15a32c6ccb286fb5d0494ff7714cd2ac916d42e249361b87c152af563a14->leave($__internal_a21e15a32c6ccb286fb5d0494ff7714cd2ac916d42e249361b87c152af563a14_prof);
 
     }
 
@@ -95,6 +103,14 @@ class __TwigTemplate_f625d4c0c911c41b73ecac76250c7ede7f4010a17e793f4891931697fb7
     {{ form_start(form) }}
     {{ form_widget(form) }}
     {{ form_end(form) }}
+
+    <script>
+        window.onunload = refreshParent;
+        function refreshParent() {
+            window.opener.location.reload();
+            window.close();
+        }
+    </script>
 
 {% endblock %}", "todo/edit.html.twig", "/home/petras/dd-project/app/Resources/views/todo/edit.html.twig");
     }
