@@ -33,11 +33,11 @@
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="profile" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>A</b>LT</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>TODO</b>List</span>
+            <span class="logo-lg">my<b>TASK</b></span>
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
@@ -276,7 +276,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="user" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
@@ -325,7 +325,7 @@
 
 
                 <li>
-                    <a href="profile/">
+                    <a href="user">
                         <i class="fa fa-calendar"></i> <span>Personal Info</span>
                         <span class="pull-right-container">
               <small class="label pull-right bg-red">3</small>
@@ -360,16 +360,7 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Dashboard
-                <small>Version 2.0</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Dashboard</li>
-            </ol>
-        </section>
+        {% block dashboard %}{% endblock %}
 
         <!-- Main content -->
         <section class="content">
