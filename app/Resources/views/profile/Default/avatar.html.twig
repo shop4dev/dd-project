@@ -1,0 +1,34 @@
+{% extends 'profile/base.html.twig' %}
+
+{%  block username %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {{ app.user.name }}
+    {% endif %}
+{% endblock %}
+
+{% block dashboard %}
+    <section class="content-header">
+        <h1>
+            User Profile
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Examples</a></li>
+            <li class="active">User profile</li>
+        </ol>
+    </section>
+{% endblock %}
+
+{% block body %}
+    <h1>Adding a new avatar</h1>
+    {#{{ fail_name }}#}
+    {{ form_start(form) }}
+
+    {{ form_row(form.avatar) }}
+
+    <div class="col-xs-4">
+        <button type="submit" class="btn btn-primary btn-block btn-flat">Submit</button>
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}

@@ -55,6 +55,14 @@ class User implements UserInterface
      */
     private $tolists;
 
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Please, upload the user avatar as a png file.")
+     * @Assert\File(mimeTypes={ "image/png" })
+     */
+    private $avatar;
+
     public function __construct()
     {
         $this->tolists = new ArrayCollection();
@@ -109,6 +117,18 @@ class User implements UserInterface
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+
+        return $this;
     }
 
     public function getPassword()

@@ -61,7 +61,8 @@ class TodoController extends Controller
             'all_count' => count($allTodos),
             'lists' => $lists,
             'data' => $data,
-            'time' => $time
+            'time' => $time,
+            'avatar' => $user->getAvatar()
         ));
     }
     /**
