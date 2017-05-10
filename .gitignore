@@ -42,3 +42,9 @@
 
 # Backup entities generated with doctrine:generate:entities command
 **/Entity/*~
+
+# Workspace data
+/.idea/workspace.xml
+
+# Db file
+/app/config/parameters.yml

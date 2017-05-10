@@ -21,11 +21,20 @@ class User implements UserInterface
     protected $id;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Email()
      * @ORM\Column(type="string", length=255, unique=true)
      */
     protected $email;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Your name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your name cannot be longer than {{ limit }} characters"
+     * )
      * @ORM\Column(type="string", length=40)
      */
     protected $name;
@@ -36,7 +45,13 @@ class User implements UserInterface
     protected $role;
 
     /**
-     * @Assert\Length(max=4096)
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 5,
+     *      max = 50,
+     *      minMessage = "Your name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your name cannot be longer than {{ limit }} characters"
+     * )
      */
     protected $plainPassword;
 

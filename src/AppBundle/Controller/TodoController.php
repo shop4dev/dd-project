@@ -80,6 +80,9 @@ class TodoController extends Controller
 
         $form->handleRequest($request);
 
+        $validator = $this->get('validator');
+        $errors = $validator->validate($tolist);
+
         if($form->isSubmitted() && $form->isValid())
         {
             $user = $this->getUser();
@@ -103,9 +106,16 @@ class TodoController extends Controller
             return $this->redirectToRoute('todo_create_list');
         }
 
-        return $this->render('todo/create.html.twig', array(
-            'form' => $form->createView()
-        ));
+        if (count($errors) > 0) {
+            return $this->render('todo/create.html.twig', array(
+                'form' => $form->createView(),
+                'errors' => $errors,
+            ));
+        }
+
+        /*return $this->render('todo/create.html.twig', array(
+            'form' => $form->createView(),
+        ));*/
     }
     /**
      * @Route("/profile/create/{id}", name="todo_create")
@@ -124,6 +134,8 @@ class TodoController extends Controller
             ->getForm();
 
         $form->handleRequest($request);
+        $validator = $this->get('validator');
+        $errors = $validator->validate($todo);
 
         if($form->isSubmitted() && $form->isValid())
         {
@@ -158,13 +170,15 @@ class TodoController extends Controller
                 'notice',
                 'Todo Added'
             );
-
-            return $this->redirectToRoute('welcome');
+            echo "<script>window.close();</script>";
+            //return $this->redirectToRoute('welcome');
         }
 
-        return $this->render('todo/create.html.twig', array(
-            'form' => $form->createView()
-        ));
+            return $this->render('todo/create.html.twig', array(
+                'form' => $form->createView(),
+                'errors' => $errors,
+            ));
+
     }
     /**
      * @Route("/profile/edit/{id}", name="todo_edit")
@@ -237,7 +251,7 @@ class TodoController extends Controller
                 'Todo Changed'
             );
 
-            return $this->redirectToRoute('welcome');
+            echo "<script>window.close();</script>";
         }
 
         return $this->render('todo/edit.html.twig', array(

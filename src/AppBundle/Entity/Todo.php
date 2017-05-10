@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Todo
@@ -28,43 +29,59 @@ class Todo
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank(
+     *     message = "To do name value must not be blank"
+     * )
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 50,
+     *      minMessage = "To do name must be at least {{ limit }} characters long",
+     *      maxMessage = "To do name cannot be longer than {{ limit }} characters"
+     * )
+     * @ORM\Column(name="name", type="string", length=50)
      */
     private $name;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="category", type="string", length=255)
+     * @Assert\NotBlank(
+     *     message = "To do category value must not be blank"
+     * )
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 50,
+     *      minMessage = "category name must be at least {{ limit }} characters long",
+     *      maxMessage = "category name cannot be longer than {{ limit }} characters"
+     * )
+     * @ORM\Column(name="category", type="string", length=50)
      */
     private $category;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="priority", type="string", length=255)
+     * @ORM\Column(name="priority", type="string", length=30)
      */
     private $priority;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="progress", type="string", length=255)
+     * @ORM\Column(name="progress", type="string", length=30)
      */
     private $progress;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="status", type="string", length=255)
+     * @ORM\Column(name="status", type="string", length=30)
      */
     private $status;
 

@@ -3,7 +3,7 @@
 {% block body %}
 
     <h2 class="page-header">Edit Todo</h2>
-    {{ form_start(form) }}
+    {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
     {{ form_widget(form) }}
     {{ form_end(form) }}
 
@@ -11,7 +11,7 @@
         window.onunload = refreshParent;
         function refreshParent() {
             window.opener.location.reload();
-            window.close();
+//            window.close();
         }
     </script>
 

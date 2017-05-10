@@ -42,7 +42,15 @@ class ToList
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(
+     *     message = "List name value must not be blank"
+     * )
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 50,
+     *      minMessage = "List name must be at least {{ limit }} characters long",
+     *      maxMessage = "List name cannot be longer than {{ limit }} characters"
+     * )
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
