@@ -28,6 +28,9 @@ class RegistrationController extends Controller
             // Set their role
             $user->setRole('ROLE_USER');
 
+            // Set their default avatar
+            $user->setAvatar('avatar.png');
+
             // Save
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);

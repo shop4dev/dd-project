@@ -10,7 +10,7 @@ services:
     app.avatar_uploader:
         class: AppBundle\FileUploader
         arguments: ['%avatar_directory%']
-    app.avatar_brochure_listener:
+    app.doctrine_avatar_listener:
         class: AppBundle\EventListener\AvatarUploadListener
         arguments: ['@app.avatar_uploader']
         tags:

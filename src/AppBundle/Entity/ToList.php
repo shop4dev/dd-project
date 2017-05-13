@@ -27,7 +27,7 @@ class ToList
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Team", inversedBy="tolists")
+     * @ORM\ManyToOne(targetEntity="Team", inversedBy="toLists")
      * @ORM\JoinColumn(name="team_id", referencedColumnName="id", nullable=true)
      */
     private $team;

@@ -6,7 +6,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\ArrayCollection;
-
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * @ORM\Entity
  * @UniqueEntity(fields="email", message="This email address is already in use")
@@ -49,8 +49,8 @@ class User implements UserInterface
      * @Assert\Length(
      *      min = 5,
      *      max = 50,
-     *      minMessage = "Your name must be at least {{ limit }} characters long",
-     *      maxMessage = "Your name cannot be longer than {{ limit }} characters"
+     *      minMessage = "Your password must be at least {{ limit }} characters long",
+     *      maxMessage = "Your password cannot be longer than {{ limit }} characters"
      * )
      */
     protected $plainPassword;
@@ -73,8 +73,6 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string")
      *
-     * @Assert\NotBlank(message="Please, upload the user avatar as a png file.")
-     * @Assert\File(mimeTypes={ "image/png" })
      */
     private $avatar;
 
@@ -213,11 +211,35 @@ class User implements UserInterface
         return $this->memberss;
     }
 
-    /**
-     * @param mixed $memberss
-     */
-    public function setMemberss($memberss)
-    {
-        $this->memberss = $memberss;
-    }
+//    /**
+//     * @param mixed $memberss
+//     */
+//    public function setMemberss($memberss)
+//    {
+//        $this->memberss = $memberss;
+//    }
+//
+//    /** @see \Serializable::serialize() */
+//    public function serialize()
+//    {
+//        return serialize(array(
+//            $this->id,
+//            $this->name,
+//            $this->password,
+//            // see section on salt below
+//            // $this->salt,
+//        ));
+//    }
+//
+//    /** @see \Serializable::unserialize() */
+//    public function unserialize($serialized)
+//    {
+//        list (
+//            $this->id,
+//            $this->name,
+//            $this->password,
+//            // see section on salt below
+//            // $this->salt
+//            ) = unserialize($serialized);
+//    }
 }

@@ -3,19 +3,14 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Todo;
-//use Doctrine\DBAL\Types\DateTimeType;
-//use Doctrine\DBAL\Types\TextType;
 use AppBundle\Entity\ToList;
-use AppBundle\Entity\User;
+use AppBundle\Form\ListType;
+use AppBundle\Form\ToDoType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints\DateTime;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 
 class TodoController extends Controller
 {
@@ -55,7 +50,7 @@ class TodoController extends Controller
         }
         $time = new \DateTime();
 
-        return $this->render('profile/Default/index.html.twig', array(
+        return $this->render('todos/index.html.twig', array(
             'todo_count' => $todoCount,
             'user_count' => count($users),
             'all_count' => count($allTodos),
@@ -72,12 +67,7 @@ class TodoController extends Controller
     {
         $tolist = new ToList();
 
-        $form = $this->createFormBuilder($tolist)
-            ->setMethod('POST')
-            ->add('name', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('save', SubmitType::class, array('label' => 'Create List', 'attr' => array('class' => 'btn btn-primary', 'style' => 'margin-bottom:15px')))
-            ->getForm();
-
+        $form = $this->createForm(ListType::class, $tolist);
         $form->handleRequest($request);
 
         $validator = $this->get('validator');
@@ -124,16 +114,9 @@ class TodoController extends Controller
     {
         $todo = new Todo();
 
-        $form = $this->createFormBuilder($todo)
-            ->add('name', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('category', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('description', TextareaType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('priority', ChoiceType::class, array('choices' => array('Low' => 'Low', 'Normal' => 'Normal', 'High' => 'High'), 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('due_date', DateTimeType::class, array('attr' => array('class' => 'formcontrol', 'style' => 'margin-bottom:15px')))
-            ->add('save', SubmitType::class, array('label' => 'Create Todo', 'attr' => array('class' => 'btn btn-primary', 'style' => 'margin-bottom:15px')))
-            ->getForm();
-
+        $form = $this->createForm(ToDoType::class, $todo);
         $form->handleRequest($request);
+
         $validator = $this->get('validator');
         $errors = $validator->validate($todo);
 
@@ -198,18 +181,7 @@ class TodoController extends Controller
         $todo->setDueDate($todo->getDueDate());
         //$todo->setCreateDate($now);
 
-        $form = $this->createFormBuilder($todo)
-            ->add('name', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('category', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('description', TextareaType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('priority', ChoiceType::class, array('choices' => array('Low' => 'Low', 'Normal' => 'Normal', 'High' => 'High'), 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('progress', ChoiceType::class, array('choices' => array('0%' => '0%', '10%' => '10%', '20%' => '20%', '30%' => '30%',
-                '40%' => '40%', '50%' => '50%', '60%' => '60%', '70%' => '70%', '80%' => '80%', '90%' => '90%', '100%' => '100%'),
-                'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('due_date', DateTimeType::class, array('attr' => array('class' => 'formcontrol', 'style' => 'margin-bottom:15px')))
-            ->add('save', SubmitType::class, array('label' => 'Update Todo', 'attr' => array('class' => 'btn btn-primary', 'style' => 'margin-bottom:15px')))
-            ->getForm();
-
+        $form = $this->createForm(ToDoType::class, $todo);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid())
