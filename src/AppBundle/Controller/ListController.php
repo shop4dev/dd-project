@@ -2,27 +2,79 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\ToList;
+use AppBundle\Form\ListType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class ListController
+ * @package AppBundle\Controller
+ *
+ * @Route("/list")
+ */
 class ListController extends Controller
 {
-    public function showAction(Request $request)
+    /**
+     * @Route("/create", name="create_list")
+     */
+    public function createListAction(Request $request)
     {
-        $characters = [
-            'Daenerys Targaryen' => 'Emilia Clarke',
-            'Jon Snow'           => 'Kit Harington',
-            'Arya Stark'         => 'Maisie Williams',
-            'Melisandre'         => 'Carice van Houten',
-            'Khal Drogo'         => 'Jason Momoa',
-            'Tyrion Lannister'   => 'Peter Dinklage',
-            'Ramsay Bolton'      => 'Iwan Rheon',
-            'Petyr Baelish'      => 'Aidan Gillen',
-            'Brienne of Tarth'   => 'Gwendoline Christie',
-            'Lord Varys'         => 'Conleth Hill'
-        ];
+        $tolist = new ToList();
 
-        return $this->render('todos/index.html.twig', array('character' => $characters));
+        $form = $this->createForm(ListType::class, $tolist);
+        $form->handleRequest($request);
+
+        $validator = $this->get('validator');
+        $errors = $validator->validate($tolist);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $user = $this->getUser();
+
+            $name = $form['name']->getData();
+
+            $tolist->setName($name);
+            $tolist->setUser($user);
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($tolist);
+            $em->persist($user);
+            $em->flush();
+
+            $this->addFlash(
+                'notice',
+                'List Added'
+            );
+
+            return $this->redirectToRoute('dashboard');
+        }
+
+        if (count($errors) > 0) {
+            return $this->render('task/create.html.twig', array(
+                'form' => $form->createView(),
+                'errors' => $errors,
+            ));
+        }
+    }
+    /**
+     * @Route("/delete/{id}", name="delete_list")
+     */
+    public function deleteListAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $list = $em->getRepository('AppBundle:ToList')->find($id);
+
+        $em->remove($list);
+        $em->flush();
+
+        $this->addFlash(
+            'notice',
+            'List Removed'
+        );
+
+        return $this->redirectToRoute('dashboard');
     }
 }

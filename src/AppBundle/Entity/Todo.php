@@ -64,27 +64,6 @@ class Todo
      */
     private $description;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="priority", type="string", length=30)
-     */
-    private $priority;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="progress", type="string", length=30)
-     */
-    private $progress;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="status", type="string", length=30)
-     */
-    private $status;
-
 
     /**
      * @var \DateTime
