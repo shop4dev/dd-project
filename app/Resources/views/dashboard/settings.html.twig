@@ -17,15 +17,17 @@
             <li class="active">User profile</li>
         </ol>
     </section>
+
 {% endblock %}
 
 {% block body %}
     <h1>Adding a new avatar</h1>
-    {#{{ fail_name }}#}
+
     {{ form_start(form) }}
 
     {{ form_row(form.avatar) }}
 
     {{ form_end(form) }}
+
 
 {% endblock %}

@@ -7,7 +7,11 @@ use AppBundle\Form\ListType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 /**
  * Class ListController
@@ -26,6 +30,7 @@ class ListController extends Controller
         $tolist = new ToList();
 
         $form = $this->createForm(ListType::class, $tolist);
+
         $form->handleRequest($request);
 
         $validator = $this->get('validator');
@@ -58,6 +63,7 @@ class ListController extends Controller
             return $this->render('task/create.html.twig', array(
                 'form' => $form->createView(),
                 'errors' => $errors,
+                'path' => 'create_list'
             ));
         }
     }

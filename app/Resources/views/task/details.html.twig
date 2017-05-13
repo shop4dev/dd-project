@@ -7,17 +7,15 @@
 {% endblock %}
 
 {% block body %}
-
-    <a href="/todos">Back to Todos</a>
-    <hr>
-    <h2 class="page-header">{{ todo.name }}</h2>
+    <h2 class="page-header" style="margin: 15px 0 15px;">{{ todos.name }}</h2>
     <ul class="list-group">
-        <li class="list-group-item">Category: {{ todo.category }}</li>
-        <li class="list-group-item">Description: {{ todo.priority}}</li>
-        <li class="list-group-item">Due: <strong>{{ todo.dueDate|date('F j, Y, g:i a')}}</strong></li>
+        <li class="list-group-item">Category: {{ todos.category }}</li>
+        <li class="list-group-item">Due: <strong>{{ todos.dueDate|date('F j, Y, g:i a')}}</strong></li>
+        <li class="list-group-item">Description:
+            <p>
+                {{ todos.description }}
+            </p>
+        </li>
     </ul>
-    <p>
-        {{ todo.description }}
-    </p>
 
 {% endblock %}

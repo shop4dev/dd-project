@@ -9,6 +9,7 @@
 {% block body %}
 
     <h2 class="page-header">Add New Element</h2>
+    {#{{ form_start(form, {'action': path('target_route'), 'method': 'GET'}) }}#}
     {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
     {{ form_widget(form) }}
     {{ form_end(form) }}

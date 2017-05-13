@@ -26,7 +26,7 @@ class TodoController extends Controller
      * @Route("/", name="dashboard")
      * @Method("GET")
      */
-    public function listAction()
+    public function listAction(Request $request)
     {
         $users = $this->getDoctrine()
             ->getRepository('AppBundle:User')
@@ -105,7 +105,7 @@ class TodoController extends Controller
                 'Todo Added'
             );
 //            echo "<script>window.close();</script>";
-            return $this->redirectToRoute('welcome');
+            return $this->redirectToRoute('dashboard');
         }
 
             return $this->render('task/create.html.twig', array(
@@ -173,7 +173,7 @@ class TodoController extends Controller
             ->getRepository('AppBundle:Todo')
             ->find($id);
         return $this->render('task/details.html.twig', array(
-            'todo' => $todo
+            'todos' => $todo
         ));
     }
     /**

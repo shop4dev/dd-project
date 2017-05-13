@@ -101,7 +101,8 @@
         <div class="box-body ">
             <ul class="todo-list">
                 {% for todo in data[tolist.id] %}
-                    <li>
+                    {#<li data-toggle="modal" data-target="#addList" style="cursor: pointer">#}
+                    <li href="details/{{ todo.id }}" data-toggle="modal" data-target="#addList" style="cursor:pointer;">
                         <!-- drag handle -->
                         <span class="handle">
                         <i class="fa fa-ellipsis-v"></i>
@@ -160,7 +161,7 @@
 
     <button type="button" class="btn btn-default pull-left" onClick="window.open('/list/create','pagename','resizable,height=230,width=370'); return false;"><i class="fa fa-plus"></i> Add new list</button>
 
-    {#<button type="button" href="/profile/list" class="btn btn-default pull-left" data-toggle="modal" data-target="#addList"><i class="fa fa-plus"></i> Add new list</button>#}
+    {#<button type="button" href="/list/create" class="btn btn-default pull-left" data-toggle="modal" data-target="#addList"><i class="fa fa-plus"></i> Add new list</button>#}
 
 </section>
 
@@ -174,12 +175,14 @@
                 <div class="modal-body">
                     ...
                 </div>
-                {#<div class="modal-footer">#}
-                    {#<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>#}
-                    {#<button type="button" class="btn btn-primary">Save changes</button>#}
-                {#</div>#}
             </div>
         </div>
     </div>
+
+{% endblock %}
+
+{% block scripts %}
+
+
 
 {% endblock %}

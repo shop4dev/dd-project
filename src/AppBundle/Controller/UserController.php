@@ -8,6 +8,7 @@ use AppBundle\Entity\User;
 use AppBundle\Form\SettingsType;
 use Symfony\Component\HttpFoundation\File\File;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Class UserController
@@ -18,7 +19,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class UserController extends Controller
 {
-
     /**
      * @Route("/settings", name="settings")
      * @Method({"GET", "POST"})
