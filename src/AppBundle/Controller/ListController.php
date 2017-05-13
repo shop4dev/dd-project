@@ -7,6 +7,7 @@ use AppBundle\Form\ListType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 /**
  * Class ListController
@@ -18,6 +19,7 @@ class ListController extends Controller
 {
     /**
      * @Route("/create", name="create_list")
+     * @Method({"GET", "POST"})
      */
     public function createListAction(Request $request)
     {
@@ -61,6 +63,7 @@ class ListController extends Controller
     }
     /**
      * @Route("/delete/{id}", name="delete_list")
+     * @Method({"DELETE", "GET"})
      */
     public function deleteListAction($id)
     {

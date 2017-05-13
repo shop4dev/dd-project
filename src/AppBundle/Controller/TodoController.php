@@ -10,6 +10,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use AppBundle\Form\SettingsType;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Class TodoController
@@ -21,6 +24,7 @@ class TodoController extends Controller
 {
     /**
      * @Route("/", name="dashboard")
+     * @Method("GET")
      */
     public function listAction()
     {
@@ -54,12 +58,12 @@ class TodoController extends Controller
             'all_count' => count($allTodos),
             'lists' => $lists,
             'data' => $data,
-            'time' => $time,
-            'avatar' => $user->getAvatar()
+            'time' => $time
         ));
     }
     /**
      * @Route("/create/{id}", name="create_task")
+     * @Method({"GET", "POST"})
      */
     public function createAction($id, Request $request)
     {
@@ -112,6 +116,7 @@ class TodoController extends Controller
     }
     /**
      * @Route("/edit/{id}", name="edit_task")
+     * @Method({"GET", "POST"})
      */
     public function editAction($id, Request $request)
     {
@@ -160,6 +165,7 @@ class TodoController extends Controller
     }
     /**
      * @Route("/details/{id}", name="task_details")
+     * @Method("GET")
      */
     public function detailsAction($id)
     {
@@ -172,6 +178,7 @@ class TodoController extends Controller
     }
     /**
      * @Route("/delete/{id}", name="task_delete")
+     * @Method({"DELETE", "GET"})
      */
     public function deleteAction($id)
     {

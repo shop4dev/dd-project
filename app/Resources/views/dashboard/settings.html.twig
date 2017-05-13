@@ -1,9 +1,9 @@
-{% extends 'profile/base.html.twig' %}
+{% extends 'dashboard/base.html.twig' %}
 
-{%  block username %}
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        {{ app.user.name }}
-    {% endif %}
+{% block title %}
+
+    myTask - Settings
+
 {% endblock %}
 
 {% block dashboard %}
