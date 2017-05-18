@@ -71,6 +71,11 @@ class User implements UserInterface
     private $tolists;
 
     /**
+     * @ORM\OneToMany(targetEntity="Team", mappedBy="admin", cascade={"remove"})
+     */
+    private $teams;
+
+    /**
      * @ORM\Column(type="string")
      *
      */
@@ -80,6 +85,7 @@ class User implements UserInterface
     {
         $this->tolists = new ArrayCollection();
         $this->memberss = new ArrayCollection();
+        $this->teams = new ArrayCollection();
     }
 
     public function eraseCredentials()
@@ -178,7 +184,35 @@ class User implements UserInterface
      */
     public function addToList(\AppBundle\Entity\ToList $tolist)
     {
-        $this->tolist[] = $tolist;
+        $this->tolists[] = $tolist;
+
+        return $this;
+    }
+
+    /**
+     * Add tolist
+     *
+     * @param \AppBundle\Entity\ToList $tolist
+     *
+     * @return User
+     */
+    public function addMembers(\AppBundle\Entity\Members $members)
+    {
+        $this->memberss[] = $members;
+
+        return $this;
+    }
+
+    /**
+     * Add tolist
+     *
+     * @param \AppBundle\Entity\ToList $tolist
+     *
+     * @return User
+     */
+    public function addTeam(\AppBundle\Entity\Team $team)
+    {
+        $this->teams[] = $team;
 
         return $this;
     }
@@ -193,6 +227,29 @@ class User implements UserInterface
         $this->tolists->removeElement($tolist);
 
     }
+
+    /**
+     * Remove members
+     *
+     * @param \AppBundle\Entity\Members $members
+     */
+    public function removeMember(\AppBundle\Entity\Members $members)
+    {
+        $this->tolists->removeElement($members);
+
+    }
+
+    /**
+     * Remove team
+     *
+     * @param \AppBundle\Entity\Team $team
+     */
+    public function removeTeam(\AppBundle\Entity\Team $team)
+    {
+        $this->tolists->removeElement($team);
+
+    }
+
     /**
      * Get to_lists
      *
@@ -204,11 +261,23 @@ class User implements UserInterface
     }
 
     /**
-     * @return mixed
+     * Get memberss
+     *
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getMemberss()
     {
         return $this->memberss;
+    }
+
+    /**
+     * Get teams
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTeams()
+    {
+        return $this->teams;
     }
 
 //    /**

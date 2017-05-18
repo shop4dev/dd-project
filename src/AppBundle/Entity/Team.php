@@ -17,8 +17,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Team
 {
     /**
-     * @var int
-     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -31,6 +29,12 @@ class Team
      * @ORM\Column(name="name", type="string", length=20)
      */
     private $name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="teams")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $admin;
 
     /**
      * @ORM\OneToMany(targetEntity="Members", mappedBy="team", cascade={"remove"})
@@ -87,15 +91,15 @@ class Team
      */
     public function getMembers()
     {
-        return $this->members;
+        return $this->memberss;
     }
 
     /**
      * @param mixed $members
      */
-    public function setMembers($members)
+    public function setMembers($memberss)
     {
-        $this->members = $members;
+        $this->memberss = $memberss;
     }
 
     /**
@@ -112,6 +116,22 @@ class Team
     public function setToLists($toLists)
     {
         $this->toLists = $toLists;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdmin()
+    {
+        return $this->admin;
+    }
+
+    /**
+     * @param mixed $admin
+     */
+    public function setAdmin($admin)
+    {
+        $this->admin = $admin;
     }
 }
 
