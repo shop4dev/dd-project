@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Avatar;
 use AppBundle\Entity\User;
 use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -16,6 +17,7 @@ class RegistrationController extends Controller
     {
         // Create a new blank user and process the form
         $user = new User();
+        $avatar = new Avatar();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
@@ -29,11 +31,13 @@ class RegistrationController extends Controller
             $user->setRole('ROLE_USER');
 
             // Set their default avatar
-            $user->setAvatar('avatar.png');
+            $avatar->setUser($user);
+            $avatar->setImg('avatar.png');
 
             // Save
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
+            $em->persist($avatar);
             $em->flush();
 
             return $this->redirectToRoute('login');

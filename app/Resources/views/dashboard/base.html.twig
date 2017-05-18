@@ -33,7 +33,7 @@
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="profile" class="logo">
+        <a href="/dashboard" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>m</b>TA</span>
             <!-- logo for regular state and mobile devices -->
@@ -80,13 +80,13 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ asset('profile/dist/img/nurser.jpg') }}" class="user-image" alt="User Image">
+                            <img src="{{ asset('/uploads/avatars/') ~ avatar }}" class="user-image" alt="User Image">
                             <span class="hidden-xs">{{ app.user.name }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="{{ asset('uploads/testas.jpg') }}" class="img-circle"
+                                <img src="{{ asset('/uploads/avatars/') ~ avatar }}" class="img-circle"
                                      alt="User Image">
 
                                 <p>
@@ -122,7 +122,7 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{ asset('profile/dist/img/nurser.jpg') }}" class="img-circle" alt="User Image">
+                    <img src="{{ asset('/uploads/avatars/') ~ avatar }}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>{{ app.user.name }}</p>
@@ -130,15 +130,18 @@
                 </div>
             </div>
             <!-- search form -->
-            <form action="#" method="get" class="sidebar-form">
+            <form action="/" method="get" class="sidebar-form">
                 <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search User...">
+                    <input type="text" name="q" placeholder="Search" onkeyup="searchq();" style="width: 169px;"/>
                     <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
+                        <button type="submit" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                        </button>
+                    </span>
                 </div>
             </form>
+            <div id="output">
+
+            </div>
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
@@ -349,5 +352,28 @@
 <script src="{{ asset('profile/dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('profile/dist/js/demo.js') }}"></script>
+<script type="text/javascript">
+    function searchq() {
+        var searchTxt = $( "input[name='q']").val();
+
+        $.post("search", {searchVal: searchTxt}, function (output) {
+            $("#output").html(output);
+        });
+    }
+    //        if(tesx_one.indexOf(text_two) != -1){
+    //            return true;
+    //        }
+    //    }
+    //    $("#searchText").keyup(function (){
+    //        var searchText = $("#searchText").val().toLowerCase()
+    //        $("search").each(function (){
+    //            if(!contains($(this).text().toLowerCase(), searchText)){
+    //                $(this).hide();
+    //            }else{
+    //                $(this).show();
+    //            }
+    //        });
+    //    });
+</script>
 </body>
 </html>

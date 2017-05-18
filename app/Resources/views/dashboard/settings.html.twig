@@ -1,5 +1,5 @@
 {% extends 'dashboard/base.html.twig' %}
-
+{% set avatar = user.avatar.img %}
 {% block title %}
 
     myTask - Settings
@@ -25,7 +25,7 @@
 
     {{ form_start(form) }}
 
-    {{ form_row(form.avatar) }}
+    {{ form_row(form) }}
 
     {{ form_end(form) }}
 

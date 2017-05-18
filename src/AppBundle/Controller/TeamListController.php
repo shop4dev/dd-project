@@ -28,6 +28,8 @@ class TeamListController extends Controller
      */
     public function listAction(Request $request)
     {
+        $user= $this->getUser();
+
         $memberships = $this->getUser()->getMemberss();
 
         $data = array();
@@ -49,7 +51,8 @@ class TeamListController extends Controller
         return $this->render('dashboard/teamlist.html.twig', array(
             'memberships' => $memberships,
             'data' => $data,
-            'data2' => $data2
+            'data2' => $data2,
+            'user' => $user
         ));
     }
     /**

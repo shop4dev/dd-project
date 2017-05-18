@@ -76,8 +76,8 @@ class User implements UserInterface
     private $teams;
 
     /**
-     * @ORM\Column(type="string")
-     *
+     * One User has One Avatar.
+     * @ORM\OneToOne(targetEntity="Avatar", mappedBy="user")
      */
     private $avatar;
 

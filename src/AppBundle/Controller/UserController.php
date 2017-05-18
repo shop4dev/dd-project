@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Avatar;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,20 +27,47 @@ class UserController extends Controller
     public function settingsAction(Request $request)
     {
         $user = $this->getUser();
-        $form = $this->createForm(SettingsType::class, $user);
+
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Avatar');
+
+        $avatar = $repository->findOneBy(
+            array('user' => $user->getId())
+        );
+
+        $form = $this->createForm(SettingsType::class, $avatar);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $file = $user->getAvatar();
-            $fileName = $this->get('app.avatar_uploader')->upload($file);
 
-            $user->setAvatar($fileName);
+            $file = $avatar->getImg();
 
-            return $this->redirect($this->generateUrl('main_user'));
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+            $file->move(
+                $this->getParameter('avatar_directory'),
+                $fileName
+            );
+
+            $avatar->setImg($fileName);
+            $avatar->setUser($user);
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($avatar);
+            $em->flush();
+
+
+            $this->addFlash(
+                'notice',
+                'Avatar changed'
+            );
+
+            return $this->redirect($this->generateUrl('settings'));
         }
 
         return $this->render('dashboard/settings.html.twig', array(
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'user' => $user
         ));
     }
     /**
@@ -50,11 +78,7 @@ class UserController extends Controller
     public function userAction($name)
     {
 
-        $repository = $this->getDoctrine()->getRepository('AppBundle:User');
-
-        $user = $repository->findOneBy(
-            array('name' => $name)
-        );
+        $user = $this->getUser();
 
 //        if($user == null){
 //            $user = $this->getUser();
@@ -73,6 +97,33 @@ class UserController extends Controller
         return $this->render('dashboard/user.html.twig', array(
             'todo_count' => $todoCount,
             'user' => $user
+        ));
+    }
+
+    /**
+     * @Route("/search", name="search")
+     * @Method({"GET", "POST"})
+     */
+    public function userSearchAction()
+    {
+
+        $searchq = $_POST['searchVal'];
+
+        $output = $this->getDoctrine()
+            ->getRepository('AppBundle:User')
+            ->findBy(array('name' => $searchq));
+
+//        $rez = $output->getResults();
+//
+        $count = 0;
+//
+//        foreach ( $output as $user){
+//            $count++;
+//        }
+
+        return $this->render('dashboard/search.html.twig', array(
+            'users' => $output,
+            'count' => $count
         ));
     }
 

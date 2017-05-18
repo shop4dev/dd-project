@@ -27,6 +27,8 @@ class TeamController extends Controller
      */
     public function listAction($id, Request $request)
     {
+        $user=$this->getUser();
+
         $team = $this->getDoctrine()
             ->getRepository('AppBundle:Team')
             ->find($id);
@@ -49,7 +51,8 @@ class TeamController extends Controller
             'lists' => $lists,
             'data' => $data,
             'time' => $time,
-            'team' => $team
+            'team' => $team,
+            'user' => $user
         ));
     }
     /**
