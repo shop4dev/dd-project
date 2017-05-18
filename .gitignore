@@ -44,7 +44,10 @@
 **/Entity/*~
 
 # Workspace data
-/.idea/workspace.xml
+/.idea/*
 
 # Db file
 /app/config/parameters.yml
+
+/composer.lock
+

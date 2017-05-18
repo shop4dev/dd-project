@@ -30,7 +30,7 @@ class TeamController extends Controller
         $team = $this->getDoctrine()
             ->getRepository('AppBundle:Team')
             ->find($id);
-        
+
             $lists = $team->getToLists();
 
         $data = array();
