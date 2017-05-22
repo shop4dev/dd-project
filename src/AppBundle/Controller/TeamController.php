@@ -33,17 +33,18 @@ class TeamController extends Controller
             ->getRepository('AppBundle:Team')
             ->find($id);
 
+        $lists=null;
+        $data = array();
+        if($team != null) {
             $lists = $team->getToLists();
 
-        $data = array();
+            $todoCount = 0;
 
-        $todoCount = 0;
-
-        foreach  ($lists as $list)
-        {
-            $todos = $list->getTodos();
-            $todoCount = $todoCount + count($todos);
-            $data[$list->getId()] = $todos;
+            foreach ($lists as $list) {
+                $todos = $list->getTodos();
+                $todoCount = $todoCount + count($todos);
+                $data[$list->getId()] = $todos;
+            }
         }
         $time = new \DateTime();
 
@@ -56,38 +57,40 @@ class TeamController extends Controller
         ));
     }
     /**
-     * @Route("/{id}/create", name="create_team_list")
+     * @Route("/create", name="create_team_list")
      * @Method({"GET", "POST"})
      */
-    public function createListAction($id, Request $request)
+    public function createListAction( Request $request)
     {
+        $team = new Team();
+
         $tolist = new ToList();
 
-        $form = $this->createForm(ListType::class, $tolist);
+        $form = $this->createForm(TeamType::class, $team);
 
         $form->handleRequest($request);
 
         $validator = $this->get('validator');
-        $errors = $validator->validate($tolist);
+        $errors = $validator->validate($team);
 
         if($form->isSubmitted() && $form->isValid())
         {
-            $team = $this->getDoctrine()
-                ->getRepository('AppBundle:Team')
-                ->find($id);
+//            $team = $this->getDoctrine()
+//                ->getRepository('AppBundle:Team')
+//                ->find($id);
 
             $name = $form['name']->getData();
 
-            $tolist->setName($name);
-            $tolist->setTeam($team);
+            $team->setName($name);
+            $team->setToLists($tolist);
 
             $em = $this->getDoctrine()->getManager();
 
-            $em->persist($tolist);
             $em->persist($team);
+            $em->persist($tolist);
             $em->flush();
 
-            return $this->redirectToRoute('teams_list');
+            return $this->redirectToRoute('teams_list', ['id' => $team->getId()]);
         }
 
             return $this->render('task/create.html.twig', array(

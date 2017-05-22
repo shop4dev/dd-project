@@ -78,20 +78,35 @@ class UserController extends Controller
     public function userAction($name)
     {
 
-        $user = $this->getUser();
+        $user = null;
 
-//        if($user == null){
-//            $user = $this->getUser();
-//        }
+        if($name == null){
+            $user = $this->getUser();
 
-        $lists = $user->getToLists();
+            $lists = $user->getToLists();
 
-        $todoCount = 0;
+            $todoCount = 0;
 
-        foreach  ($lists as $list)
-        {
-            $todos = $list->getTodos();
-            $todoCount = $todoCount + count($todos);
+            foreach  ($lists as $list)
+            {
+                $todos = $list->getTodos();
+                $todoCount = $todoCount + count($todos);
+            }
+        }else{
+
+            $em = $this->getDoctrine()->getManager();
+
+            $user = $em->getRepository('AppBundle:User')->findOneBy(array( 'name' => $name ));
+
+            $lists = $user->getToLists();
+
+            $todoCount = 0;
+
+            foreach  ($lists as $list)
+            {
+                $todos = $list->getTodos();
+                $todoCount = $todoCount + count($todos);
+            }
         }
 
         return $this->render('dashboard/user.html.twig', array(
@@ -106,25 +121,20 @@ class UserController extends Controller
      */
     public function userSearchAction()
     {
+        $users = null;
 
         $searchq = $_POST['searchVal'];
 
-        $output = $this->getDoctrine()
-            ->getRepository('AppBundle:User')
-            ->findBy(array('name' => $searchq));
+        $em = $this->getDoctrine()->getManager();
 
-//        $rez = $output->getResults();
-//
-        $count = 0;
-//
-//        foreach ( $output as $user){
-//            $count++;
-//        }
+        $query = $em->createQuery("SELECT u FROM AppBundle:User u WHERE u.email like :searchmail OR u.name like :searchname")
+            ->setParameter('searchmail', '%'.$searchq.'%')
+            ->setParameter('searchname', '%'.$searchq.'%');
+
+        $users = $query->getResult();
 
         return $this->render('dashboard/search.html.twig', array(
-            'users' => $output,
-            'count' => $count
+            'users' => $users
         ));
     }
-
 }

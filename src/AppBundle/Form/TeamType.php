@@ -2,6 +2,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use AppBundle\Entity\Team;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -22,7 +23,7 @@ class TeamType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'AppBundle\Entity\Team',
+            'data_class' => Team::class,
         ]);
     }
 }

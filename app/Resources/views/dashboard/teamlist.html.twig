@@ -82,11 +82,19 @@
 
         </section>
 
+        <script>
+            window.onunload = refreshParent;
+            function refreshParent() {
+                window.opener.location.reload();
+                window.close();
+            }
+        </script>
+
     {% endfor %}
 
     <section class="col-lg-4 connectedSortable">
 
-        <button type="button" class="btn btn-default pull-left" onClick="window.open('/teams/create','pagename','resizable,height=230,width=370'); return false;"><i class="fa fa-plus"></i> Create new team</button>
+        <button type="button" class="btn btn-default pull-left" onClick="window.opener.location.reload(); window.close(); return false;"><i class="fa fa-plus"></i> Create new team</button>
 
     </section>
 

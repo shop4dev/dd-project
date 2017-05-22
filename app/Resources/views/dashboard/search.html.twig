@@ -1,8 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head></head>
 <body>
-    <h6 style="color: white">{{ users.name }}</h6>
-<h6>{{ count }}</h6>
+<ul style="margin-left: -40px;">
+    {% if users == null %}
+        <span style="margin-left: 20px; color: white;">User not found</span>
+    {% else %}
+        {% for user in users %}
+            <li>
+                <a href="/user/{{ user.name }}">
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <img src="{{ asset('/uploads/avatars/') ~ user.avatar.img }}" class="img-circle" alt="User Image">
+                        </div>
+                        <div class="pull-left info">
+                            <p>{{ user.name }}</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    {% endif %}
+</ul>
 </body>
 </html>
