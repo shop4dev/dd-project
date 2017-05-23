@@ -7,7 +7,8 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="{{ asset('profile/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('profile/bootstrap/css/bootstrap.min.css') }}">\
+    <link rel="stylesheet" href="{{ asset('profile/bootstrap/search.css') }}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Ionicons -->
@@ -130,22 +131,16 @@
                 </div>
             </div>
             <!-- search form -->
-            <form action="/" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" placeholder="Search" onkeyup="searchq();" style="width: 169px;"/>
-                    <span class="input-group-btn">
-                        <button type="submit" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                        </button>
-                    </span>
-                </div>
-            </form>
-            <div id="output">
+            <form action="/" method="get" class="search">
+                <input id="search-query" type="text" name="q" placeholder="Search" onkeyup="searchq();" style="width: 210px;" autocomplete="off">
+                <ul class="search-ac sidebar-menu" id="output" style="width: 200px">
 
-            </div>
+                </ul>
+            </form>
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
-                <li class="header">MAIN NAVIGATION</li>
+                <li class="header" style="margin-top: 10px">MAIN NAVIGATION</li>
 
 
                 <li>
@@ -356,9 +351,12 @@
     function searchq() {
         var searchTxt = $( "input[name='q']").val();
 
-        $.post("search", {searchVal: searchTxt}, function (output) {
-            $("#output").html(output);
-        });
+        if(searchTxt != "") {
+            $.post("search", {searchVal: searchTxt}, function (output) {
+                $("#output").html(output);
+            });
+        }
+        else{$("#output").null(output)}
     }
     //        if(tesx_one.indexOf(text_two) != -1){
     //            return true;

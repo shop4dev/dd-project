@@ -90,13 +90,14 @@ class TeamController extends Controller
             $em->persist($tolist);
             $em->flush();
 
-            return $this->redirectToRoute('teams_list', ['id' => $team->getId()]);
+//            return $this->redirectToRoute('teams_list', ['id' => $team->getId()]);
         }
 
             return $this->render('task/create.html.twig', array(
                 'form' => $form->createView(),
                 'errors' => $errors,
-                'path' => 'create_list'
+                'path' => 'create_list',
+                'team' => $team
             ));
     }
     /**

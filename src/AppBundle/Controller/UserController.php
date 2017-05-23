@@ -80,19 +80,32 @@ class UserController extends Controller
 
         $user = null;
 
-        if($name == null){
+        if($name == -1){
             $user = $this->getUser();
 
             $lists = $user->getToLists();
 
+            $userTeams = $user->getTeams();
+
             $todoCount = 0;
+
+            $teams = array();
+            $i=0;
 
             foreach  ($lists as $list)
             {
                 $todos = $list->getTodos();
                 $todoCount = $todoCount + count($todos);
             }
+
+            foreach ($userTeams as $team){
+                $teams[$i] = $team->getName();
+                $i++;
+            }
+
         }else{
+
+            $mainUser = $this->getUser();
 
             $em = $this->getDoctrine()->getManager();
 
@@ -100,18 +113,29 @@ class UserController extends Controller
 
             $lists = $user->getToLists();
 
+            $userTeams = $mainUser->getTeams();
+
             $todoCount = 0;
+
+            $teams = array();
+            $i=0;
 
             foreach  ($lists as $list)
             {
                 $todos = $list->getTodos();
                 $todoCount = $todoCount + count($todos);
             }
+
+            foreach ($userTeams as $team){
+                $teams[$i] = $team->getName();
+                $i++;
+            }
         }
 
         return $this->render('dashboard/user.html.twig', array(
             'todo_count' => $todoCount,
-            'user' => $user
+            'user' => $user,
+            'teams' => $teams
         ));
     }
 

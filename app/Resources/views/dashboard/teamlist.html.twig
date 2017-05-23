@@ -37,64 +37,56 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body ">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Firstname</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        {% if data[member.id].admin != app.user %}
-
-                        {% else %}
-                            <th style="float: right;">Action</th>
-                        {% endif %}
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for user in data2[data[member.id].id] %}
-                    <tr>
-                            <td>{{ user.name }}</td>
-                            <td>{{ user.email }}</td>
-                            {% if data[member.id].admin == user %}
-                                <td>admin</td>
-                            {% else %}
-                                <td>user</td>
-                            {% endif %}
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Firstname</th>
+                            <th>Email</th>
+                            <th>Role</th>
                             {% if data[member.id].admin != app.user %}
-                                {#<td><button type="button" class="btn btn-default pull-right" disabled onClick="">Delete</button></td>#}
+
                             {% else %}
-                                <td><a href="/teams/{{ data[member.id].id }}/delete_member/{{ user.id }}" class="btn btn-default pull-right" onClick="">Delete</a></td>
+                                <th style="float: right;">Action</th>
                             {% endif %}
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for user in data2[data[member.id].id] %}
+                            <tr>
+                                <td>{{ user.name }}</td>
+                                <td>{{ user.email }}</td>
+                                {% if data[member.id].admin == user %}
+                                    <td>admin</td>
+                                {% else %}
+                                    <td>user</td>
+                                {% endif %}
+                                {% if data[member.id].admin != app.user %}
+                                    {#<td><button type="button" class="btn btn-default pull-right" disabled onClick="">Delete</button></td>#}
+                                {% else %}
+                                    <td><a href="/teams/{{ data[member.id].id }}/delete_member/{{ user.id }}" class="btn btn-default pull-right" onClick="">Delete</a></td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer clearfix no-border">
                     <a href="/teams/{{ data[member.id].id }}" class="btn btn-default pull-left" ><i class="fa fa-arrow-up"></i> Enter list</a>
                     {% if data[member.id].admin == app.user %}
-                    <button type="button" onClick="window.open('/teams/{{ data[member.id].id }}/add_member','pagename','resizable,height=230,width=370'); return false;" class="btn btn-default pull-right" onClick=""><i class="fa fa-plus"></i> Add to team</button>
-                        {% endif %}
+                        <button type="button" onClick="window.open('/teams/{{ data[member.id].id }}/add_member','pagename','resizable,height=230,width=370'); return false;" class="btn btn-default pull-right" onClick=""><i class="fa fa-plus"></i> Add to team</button>
+                    {% endif %}
                 </div>
             </div>
             <!-- /.box -->
 
         </section>
 
-        <script>
-            window.onunload = refreshParent;
-            function refreshParent() {
-                window.opener.location.reload();
-                window.close();
-            }
-        </script>
-
     {% endfor %}
 
     <section class="col-lg-4 connectedSortable">
 
-        <button type="button" class="btn btn-default pull-left" onClick="window.opener.location.reload(); window.close(); return false;"><i class="fa fa-plus"></i> Create new team</button>
+        <button type="button" class="btn btn-default pull-left" onClick="window.open('/teams/create','pagename','resizable,height=230,width=370'); return false;"><i class="fa fa-plus"></i> Create new team</button>
 
     </section>
 
