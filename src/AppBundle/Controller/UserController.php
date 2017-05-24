@@ -141,7 +141,7 @@ class UserController extends Controller
 
     /**
      * @Route("/search", name="search")
-     * @Method({"GET", "POST"})
+     * @Method({"POST"})
      */
     public function userSearchAction()
     {

@@ -102,7 +102,7 @@ class TeamController extends Controller
     }
     /**
      * @Route("/{id}/delete/{id2}", name="delete_team_list")
-     * @Method({"DELETE", "GET"})
+     * @Method({"GET"})
      */
     public function deleteListAction($id, $id2)
     {

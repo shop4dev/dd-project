@@ -131,7 +131,7 @@ class TeamTodoController extends Controller
     }
     /**
      * @Route("/delete_todo/{id}", name="team_task_delete")
-     * @Method({"DELETE", "GET"})
+     * @Method({"GET"})
      */
     public function deleteAction($id)
     {

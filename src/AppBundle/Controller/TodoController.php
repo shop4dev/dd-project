@@ -179,7 +179,7 @@ class TodoController extends Controller
     }
     /**
      * @Route("/delete/{id}", name="task_delete")
-     * @Method({"DELETE", "GET"})
+     * @Method({"GET"})
      */
     public function deleteAction($id)
     {

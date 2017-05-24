@@ -69,7 +69,7 @@ class ListController extends Controller
     }
     /**
      * @Route("/delete/{id}", name="delete_list")
-     * @Method({"DELETE", "GET"})
+     * @Method({"GET"})
      */
     public function deleteListAction($id)
     {
