@@ -2,19 +2,20 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\ToList;
-use AppBundle\Form\ListType;
+use AppBundle\Form\MemberType;
 use AppBundle\Form\TeamType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use AppBundle\Entity\User;
 use AppBundle\Entity\Team;
+use AppBundle\Entity\ToList;
 use AppBundle\Entity\Members;
 use Symfony\Component\HttpFoundation\Request;
+//use AppBundle\Form\TeamType;
 
 /**
- * Class TeamController
+ * Class TeamListController
  * @package AppBundle\Controller
  *
  * @Route("/teams")
@@ -22,49 +23,45 @@ use Symfony\Component\HttpFoundation\Request;
 class TeamController extends Controller
 {
     /**
-     * @Route("/{id}", name="teams_todo_list")
+     * @Route("/", name="teams_list")
      * @Method("GET")
      */
-    public function listAction($id, Request $request)
+    public function listAction(Request $request)
     {
-        $user=$this->getUser();
+        $user= $this->getUser();
 
-        $team = $this->getDoctrine()
-            ->getRepository('AppBundle:Team')
-            ->find($id);
+        $memberships = $this->getUser()->getMemberss();
 
-        $lists=null;
         $data = array();
-        if($team != null) {
-            $lists = $team->getToLists();
+        $data2 = array();
 
-            $todoCount = 0;
-
-            foreach ($lists as $list) {
-                $todos = $list->getTodos();
-                $todoCount = $todoCount + count($todos);
-                $data[$list->getId()] = $todos;
+        foreach  ($memberships as $member)
+        {
+            $team = $member->getTeam();
+            $data[$member->getId()] = $team;
+            $member_list = $team->getMembers();
+            $data3 = array();
+            foreach ($member_list as $mem){
+                $user = $mem->getUser();
+                array_push($data3, $user);
             }
+            $data2[$team->getId()] = $data3;
         }
-        $time = new \DateTime();
 
-        return $this->render('dashboard/teamdash.html.twig', array(
-            'lists' => $lists,
+        return $this->render('dashboard/teamlist.html.twig', array(
+            'memberships' => $memberships,
             'data' => $data,
-            'time' => $time,
-            'team' => $team,
+            'data2' => $data2,
             'user' => $user
         ));
     }
     /**
-     * @Route("/create", name="create_team_list")
+     * @Route("/create", name="teams_create")
      * @Method({"GET", "POST"})
      */
-    public function createListAction( Request $request)
+    public function createAction(Request $request)
     {
         $team = new Team();
-
-        $tolist = new ToList();
 
         $form = $this->createForm(TeamType::class, $team);
 
@@ -75,43 +72,115 @@ class TeamController extends Controller
 
         if($form->isSubmitted() && $form->isValid())
         {
-//            $team = $this->getDoctrine()
-//                ->getRepository('AppBundle:Team')
-//                ->find($id);
+            $user = $this->getUser();
 
             $name = $form['name']->getData();
 
             $team->setName($name);
-            $team->setToLists($tolist);
+            $team->setAdmin($user);
 
             $em = $this->getDoctrine()->getManager();
 
             $em->persist($team);
-            $em->persist($tolist);
             $em->flush();
 
-//            return $this->redirectToRoute('teams_list', ['id' => $team->getId()]);
+            $member = new Members();
+            $member->setTeam($team);
+            $member->setUser($user);
+
+            $em->persist($member);
+            $em->flush();
+
+            return $this->redirectToRoute('teams_list');
         }
 
-            return $this->render('task/create.html.twig', array(
-                'form' => $form->createView(),
-                'errors' => $errors,
-                'path' => 'create_list',
-                'team' => $team
-            ));
+//        if (count($errors) > 0) {
+        return $this->render('task/create.html.twig', array(
+            'form' => $form->createView(),
+            'errors' => $errors,
+            'path' => 'create_list'
+        ));
+//        }
     }
     /**
-     * @Route("/{id}/delete/{id2}", name="delete_team_list")
+     * @Route("/delete/{id}", name="teams_delete")
      * @Method({"GET"})
      */
-    public function deleteListAction($id, $id2)
+    public function deleteListAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $list = $em->getRepository('AppBundle:ToList')->find($id2);
+        $list = $em->getRepository('AppBundle:Team')->find($id);
 
         $em->remove($list);
         $em->flush();
 
         return $this->redirectToRoute('teams_list');
+    }
+    /**
+     * @Route("/{id}/delete_member/{id2}", name="member_delete")
+     * @Method({"GET"})
+     */
+    public function deleteMemberAction($id, $id2)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $member = $em->getRepository('AppBundle:Members')->findOneBy(
+            array('user' => $id2, 'team' => $id)
+        );
+
+        $em->remove($member);
+        $em->flush();
+
+        return $this->redirectToRoute('teams_list');
+    }
+    /**
+     * @Route("/{id}/add_member", name="member_add")
+     * @Method({"GET", "POST"})
+     */
+    public function addMemberAction($id, Request $request)
+    {
+        $member = new Members();
+
+        $form = $this->createForm(MemberType::class, $member);
+
+        $form->handleRequest($request);
+
+        $validator = $this->get('validator');
+        $errors = $validator->validate($member);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $name = $form['user']->getData();
+
+            $team = $this->getDoctrine()
+                ->getRepository('AppBundle:Team')
+                ->find($id);
+
+            $user = $this->getDoctrine()
+                ->getRepository('AppBundle:User')
+                ->findOneBy(array(
+                    'name' => $name
+                ));
+
+            $member->setUser($user);
+            $member->setTeam($team);
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($member);
+            $em->flush();
+
+            $this->addFlash(
+                'notice',
+                'List Added'
+            );
+
+            return $this->redirectToRoute('teams_list');
+        }
+
+        return $this->render('task/create.html.twig', array(
+            'form' => $form->createView(),
+            'errors' => $errors,
+            'path' => 'create_list'
+        ));
     }
 }
