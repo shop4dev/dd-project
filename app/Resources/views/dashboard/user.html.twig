@@ -32,20 +32,22 @@
 
             <ul class="nav nav-pills nav-stacked">
                 <li class="active"><a style="background: #f8f7f5 !important;border-left: 5px solid #ff766c;color: #89817f !important;"> <i class="fa fa-user"></i> Profile</a></li>
+                {% if app.user != user %}
                 <li class="dropdown notifications-menu">
                     <a style="background: #f8f7f5 !important;border-left: 5px solid #ff766c;color: #89817f !important;" href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-user"></i> Add to team
+                        <i class="fa fa-check-circle-o"></i> Add to team
                     </a>
                     <ul class="dropdown-menu" style="width: 425px;">
                         {% if teams == null %}
                             <li><p>Please first go to Team List and create new team.</p></li>
                         {% else %}
                             {% for team in teams %}
-                                <li><a href="#">{{ team.name }}</a></li>
+                                <li><a href="/teams/{{ team.id }}/add_member/{{ user.id }}">{{ team.name }}</a></li>
                                 {% endfor %}
                         {% endif %}
                     </ul>
                 </li>
+                {% endif %}
             </ul>
 
         </section>

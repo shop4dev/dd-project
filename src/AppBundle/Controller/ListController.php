@@ -56,7 +56,7 @@ class ListController extends Controller
                 'List Added'
             );
 
-            return $this->redirectToRoute('dashboard');
+            echo "<script>window.opener.location.reload();window.close();</script>";
         }
 
         if (count($errors) > 0) {

@@ -62,7 +62,7 @@ class TeamtodoController extends Controller
             $em->persist($todo);
             $em->flush();
 
-            return $this->redirectToRoute('teams_list');
+            echo "<script>window.opener.location.reload();window.close();</script>";
         }
 
         return $this->render('task/create.html.twig', array(
@@ -107,7 +107,7 @@ class TeamtodoController extends Controller
 
             $em->flush();
 
-            echo "<script>window.close();</script>";
+            echo "<script>window.opener.location.reload();window.close();</script>";
         }
 
         return $this->render('task/edit.html.twig', array(

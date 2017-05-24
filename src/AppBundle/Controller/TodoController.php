@@ -105,8 +105,7 @@ class TodoController extends Controller
                 'notice',
                 'Todo Added'
             );
-//            echo "<script>window.close();</script>";
-            return $this->redirectToRoute('dashboard');
+            echo "<script>window.opener.location.reload();window.close();</script>";
         }
 
             return $this->render('task/create.html.twig', array(
@@ -156,7 +155,7 @@ class TodoController extends Controller
                 'Todo Changed'
             );
 
-            echo "<script>window.close();</script>";
+            echo "<script>window.opener.location.reload();window.close();</script>";
         }
 
         return $this->render('task/edit.html.twig', array(

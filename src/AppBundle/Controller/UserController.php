@@ -106,19 +106,15 @@ class UserController extends Controller
         }else{
 
             $mainUser = $this->getUser();
-
             $em = $this->getDoctrine()->getManager();
 
             $user = $em->getRepository('AppBundle:User')->findOneBy(array( 'name' => $name ));
 
             $lists = $user->getToLists();
 
-            $userTeams = $mainUser->getTeams();
+            $teams = $mainUser->getTeams();
 
             $todoCount = 0;
-
-            $teams = array();
-            $i=0;
 
             foreach  ($lists as $list)
             {
@@ -126,10 +122,6 @@ class UserController extends Controller
                 $todoCount = $todoCount + count($todos);
             }
 
-            foreach ($userTeams as $team){
-                $teams[$i] = $team->getName();
-                $i++;
-            }
         }
 
         return $this->render('dashboard/user.html.twig', array(

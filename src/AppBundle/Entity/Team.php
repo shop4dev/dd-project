@@ -26,6 +26,15 @@ class Team
     /**
      * @var string
      *
+     * @Assert\NotBlank(
+     *     message = "To do name value must not be blank"
+     * )
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 50,
+     *      minMessage = "To do name must be at least {{ limit }} characters long",
+     *      maxMessage = "To do name cannot be longer than {{ limit }} characters"
+     * )
      * @ORM\Column(name="name", type="string", length=20)
      */
     private $name;

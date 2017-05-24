@@ -88,7 +88,7 @@ class TeamController extends Controller
             $em->persist($member);
             $em->flush();
 
-            return $this->redirectToRoute('teams_list');
+            echo "<script>window.opener.location.reload();window.close();</script>";
         }
 
 //        if (count($errors) > 0) {
@@ -171,7 +171,7 @@ class TeamController extends Controller
                 'List Added'
             );
 
-            return $this->redirectToRoute('teams_list');
+            echo "<script>window.opener.location.reload();window.close();</script>";
         }
 
         return $this->render('task/create.html.twig', array(
@@ -179,5 +179,30 @@ class TeamController extends Controller
             'errors' => $errors,
             'path' => 'create_list'
         ));
+    }
+    /**
+     * @Route("/{id}/add_member/{id2}", name="member_profile_add")
+     * @Method({"GET", "POST"})
+     */
+    public function addMemberProfileAction($id, $id2, Request $request)
+    {
+        $member = new Members();
+        $team = $this->getDoctrine()
+            ->getRepository('AppBundle:Team')
+            ->find($id);
+
+        $user = $this->getDoctrine()
+            ->getRepository('AppBundle:User')
+            ->find($id2);
+
+        $member->setUser($user);
+        $member->setTeam($team);
+
+        $em = $this->getDoctrine()->getManager();
+
+        $em->persist($member);
+        $em->flush();
+
+        return $this->redirectToRoute('teams_list');
     }
 }

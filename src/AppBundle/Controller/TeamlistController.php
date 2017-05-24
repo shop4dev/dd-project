@@ -68,7 +68,7 @@ class TeamlistController extends Controller
 
         $tolist = new ToList();
 
-        $form = $this->createForm(TeamType::class, $team);
+        $form = $this->createForm(ListType::class, $tolist);
 
         $form->handleRequest($request);
 
@@ -88,7 +88,7 @@ class TeamlistController extends Controller
             $em->persist($tolist);
             $em->flush();
 
-//            return $this->redirectToRoute('teams_list', ['id' => $team->getId()]);
+            echo "<script>window.opener.location.reload();window.close();</script>";
         }
 
         return $this->render('task/create.html.twig', array(
