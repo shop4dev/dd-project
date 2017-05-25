@@ -81,13 +81,13 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ asset('/uploads/avatars/') ~ avatar }}" class="user-image" alt="User Image">
+                            <img src="{{  avatar }}" class="user-image" alt="User Image">
                             <span class="hidden-xs">{{ app.user.name }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="{{ asset('/uploads/avatars/') ~ avatar }}" class="img-circle"
+                                <img src="{{ avatar }}" class="img-circle"
                                      alt="User Image">
 
                                 <p>
@@ -123,23 +123,23 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{ asset('/uploads/avatars/') ~ avatar }}" style="height: 45px; width: 45px" class="img-circle" alt="User Image">
+                    <img src="{{ avatar }}" style="height: 45px; width: 45px" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>{{ app.user.name }}</p>
                 </div>
             </div>
             <!-- search form -->
-            <form action="/" method="get" class="search">
+            <form action="/" method="get" class="sidebar-form">
                 <input id="search-query" type="text" name="q" placeholder="Search" onkeyup="searchq();" style="width: 210px;" autocomplete="off">
-                <ul class="search-ac sidebar-menu" id="output" style="width: 200px">
+                <ul class="sidebar-menu" id="output" style="width: 200px; z-index: 10; position: absolute">
 
                 </ul>
             </form>
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
-                <li class="header" style="margin-top: 10px">MAIN NAVIGATION</li>
+                <li class="header">MAIN NAVIGATION</li>
 
 
                 <li>

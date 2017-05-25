@@ -26,7 +26,10 @@
     <!-- home section -->
     <div class="register-box-body">
         <section id="home">
-            <div style="padding-left: 850px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4"></div>
+            <div class="col-md-4">
             <p class="login-box-msg">Register a new membership</p>
 
             {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
@@ -62,15 +65,10 @@
             </div>
             {{ form_end(form) }}
 
-            <div class="social-auth-links text-center">
-                <p>- OR -</p>
-                <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using
-                    Facebook</a>
-                <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using
-                    Google+</a>
-            </div>
-
             <a href="/login" class="text-center">I already have a membership</a>
+            </div>
+                    <div class="col-xs-4"></div>
+                </div>
             </div>
         </section>
     </div>

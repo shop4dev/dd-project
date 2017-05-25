@@ -148,8 +148,10 @@ input {
   -webkit-box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
   box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
 }
-.search input:focus + .search-ac {
+.sidebar-form input:focus + .search-ac {
   display: block;
+  margin-top: 135px;
+  margin-left: 10px;
 }
 
 .search-ac {

@@ -2,6 +2,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Avatar;
+use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,39 +35,71 @@ class UserController extends Controller
             array('user' => $user->getId())
         );
 
-        $form = $this->createForm(SettingsType::class, $avatar);
+        $user->setName($user->getName());
+        $user->setEmail($user->getEmail());
+        $user->setAvatar($user->getAvatar());
+
+        $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
+
+        $form2 = $this->createForm(SettingsType::class, $avatar);
+        $form2->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $file = $avatar->getImg();
+            $name=$form['name']->getData();
+            $user->setName($name);
 
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $mail=$form['email']->getData();
+            $user->setEmail($mail);
 
-            $file->move(
-                $this->getParameter('avatar_directory'),
-                $fileName
-            );
-
-            $avatar->setImg($fileName);
-            $avatar->setUser($user);
+            $encoder = $this->get('security.password_encoder');
+            $password = $encoder->encodePassword($user, $user->getPlainPassword());
+            $user->setPassword($password);
 
             $em = $this->getDoctrine()->getManager();
 
-            $em->persist($avatar);
+            $em->persist($user);
             $em->flush();
-
 
             $this->addFlash(
                 'notice',
-                'Avatar changed'
+                'User changed'
             );
 
-            return $this->redirect($this->generateUrl('settings'));
+            if ($form2->isSubmitted() && $form2->isValid()) {
+
+                $file = $avatar->getImg();
+
+                $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+
+                $Name = '/uploads/avatars/'.$fileName;
+
+                $file->move(
+                    $this->getParameter('avatar_directory'),
+                    $fileName
+                );
+
+                $avatar->setImg($Name);
+                $avatar->setUser($user);
+
+                $em = $this->getDoctrine()->getManager();
+
+                $em->persist($avatar);
+                $em->flush();
+
+                $this->addFlash(
+                    'notice',
+                    'Avatar changed'
+                );
+            }
+
+            return $this->redirect($this->generateUrl('dashboard'));
         }
 
         return $this->render('dashboard/settings.html.twig', array(
             'form' => $form->createView(),
+            'form2' => $form2->createView(),
             'user' => $user
         ));
     }
@@ -99,7 +132,7 @@ class UserController extends Controller
             }
 
             foreach ($userTeams as $team){
-                $teams[$i] = $team->getName();
+                $teams[$i] = $team;
                 $i++;
             }
 
@@ -132,8 +165,8 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/search", name="search")
-     * @Method({"POST"})
+     * @Route("/search", name="search3")
+     * @Method({"GET", "POST"})
      */
     public function userSearchAction()
     {

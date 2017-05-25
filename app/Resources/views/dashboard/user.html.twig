@@ -24,7 +24,7 @@
         <section class="panel">
             <div class="user-heading round" style="background: #ff766c;color: #fff;border-radius: 4px 4px 0 0;-webkit-border-radius: 4px 4px 0 0;padding: 30px;text-align: center;">
                 <a href="avatar">
-                    <img src="{{ asset('/uploads/avatars/') ~ user.avatar.img }}" alt="" style="width: 112px;height: 112px;border-radius: 50%;-webkit-border-radius: 50%;">
+                    <img src="{{ user.avatar.img }}" alt="" style="width: 112px;height: 112px;border-radius: 50%;-webkit-border-radius: 50%;">
                 </a>
                 <h1>{{ user.name}}</h1>
                 <p>{{ user.email }}</p>

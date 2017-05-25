@@ -195,4 +195,27 @@ class TodoController extends Controller
 
         return $this->redirectToRoute('dashboard');
     }
+
+    /**
+     * @Route("/search", name="search1")
+     * @Method({"GET", "POST"})
+     */
+    public function userSearchAction()
+    {
+        $users = null;
+
+        $searchq = $_POST['searchVal'];
+
+        $em = $this->getDoctrine()->getManager();
+
+        $query = $em->createQuery("SELECT u FROM AppBundle:User u WHERE u.email like :searchmail OR u.name like :searchname")
+            ->setParameter('searchmail', '%'.$searchq.'%')
+            ->setParameter('searchname', '%'.$searchq.'%');
+
+        $users = $query->getResult();
+
+        return $this->render('dashboard/search.html.twig', array(
+            'users' => $users
+        ));
+    }
 }

@@ -16,9 +16,7 @@ class SettingsType extends AbstractType
     {
         $builder
             ->setMethod('POST')
-            ->add('img', FileType::class, array('label' => 'Avatar (png file)', 'data_class' => null))
-            ->add('save', SubmitType::class, array('label' => 'Update Todo', 'attr' => array('class' => 'btn btn-primary', 'style' => 'margin-bottom:15px'))
-            );
+            ->add('img', FileType::class, array('label' => 'Avatar (png file)', 'data_class' => null));
     }
 
     public function configureOptions(OptionsResolver $resolver)

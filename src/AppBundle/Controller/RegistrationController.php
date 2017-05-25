@@ -34,7 +34,7 @@ class RegistrationController extends Controller
 
             // Set their default avatar
             $avatar->setUser($user);
-            $avatar->setImg('avatar.png');
+            $avatar->setImg('/images/avatar.png');
 
             // Save
             $em = $this->getDoctrine()->getManager();
