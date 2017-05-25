@@ -681,6 +681,10 @@ a:focus {
   white-space: nowrap;
   overflow: hidden;
 }
+
+.search-ac {
+  display: none;
+}
 .sidebar-menu:hover {
   display: block;
 }

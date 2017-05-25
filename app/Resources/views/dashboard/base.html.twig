@@ -131,8 +131,8 @@
             </div>
             <!-- search form -->
             <form action="/" method="get" class="sidebar-form">
-                <input id="search-query" type="text" name="q" placeholder="Search" onkeyup="searchq();" style="width: 210px;" autocomplete="off">
-                <ul class="sidebar-menu" id="output" style="width: 200px; z-index: 10; position: absolute">
+                <input id="search-query" type="text" name="q" placeholder="Search" onkeyup="searchq();" style="width: 210px;" autocomplete="off" >
+                <ul class="sidebar-menu" id="output" style="width: 200px; z-index: 10; position: absolute" >
 
                 </ul>
             </form>
@@ -355,22 +355,8 @@
                 $("#output").html(output);
             });
         }
-        else{$("#output").null(output)}
+        else{$("#output").html(output)}
     }
-    //        if(tesx_one.indexOf(text_two) != -1){
-    //            return true;
-    //        }
-    //    }
-    //    $("#searchText").keyup(function (){
-    //        var searchText = $("#searchText").val().toLowerCase()
-    //        $("search").each(function (){
-    //            if(!contains($(this).text().toLowerCase(), searchText)){
-    //                $(this).hide();
-    //            }else{
-    //                $(this).show();
-    //            }
-    //        });
-    //    });
 </script>
 </body>
 </html>

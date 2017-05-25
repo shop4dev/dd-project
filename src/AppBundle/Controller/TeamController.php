@@ -157,19 +157,20 @@ class TeamController extends Controller
                 ->findOneBy(array(
                     'name' => $name
                 ));
+            if($user != null) {
+                $member->setUser($user);
+                $member->setTeam($team);
 
-            $member->setUser($user);
-            $member->setTeam($team);
+                $em = $this->getDoctrine()->getManager();
 
-            $em = $this->getDoctrine()->getManager();
+                $em->persist($member);
+                $em->flush();
 
-            $em->persist($member);
-            $em->flush();
-
-            $this->addFlash(
-                'notice',
-                'List Added'
-            );
+                $this->addFlash(
+                    'notice',
+                    'List Added'
+                );
+            }
 
             echo "<script>window.opener.location.reload();window.close();</script>";
         }

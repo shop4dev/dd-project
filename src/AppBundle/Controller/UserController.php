@@ -8,7 +8,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\User;
 use AppBundle\Form\SettingsType;
-use Symfony\Component\HttpFoundation\File\File;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -66,6 +65,8 @@ class UserController extends Controller
                 'notice',
                 'User changed'
             );
+            return $this->redirect($this->generateUrl('settings'));
+        }
 
             if ($form2->isSubmitted() && $form2->isValid()) {
 
@@ -92,10 +93,9 @@ class UserController extends Controller
                     'notice',
                     'Avatar changed'
                 );
-            }
 
-            return $this->redirect($this->generateUrl('dashboard'));
-        }
+                return $this->redirect($this->generateUrl('settings'));
+            }
 
         return $this->render('dashboard/settings.html.twig', array(
             'form' => $form->createView(),
@@ -112,6 +112,9 @@ class UserController extends Controller
     {
 
         $user = null;
+        $error = null;
+        $teams = null;
+        $todoCount = 0;
 
         if($name == -1){
             $user = $this->getUser();
@@ -119,8 +122,6 @@ class UserController extends Controller
             $lists = $user->getToLists();
 
             $userTeams = $user->getTeams();
-
-            $todoCount = 0;
 
             $teams = array();
             $i=0;
@@ -143,24 +144,26 @@ class UserController extends Controller
 
             $user = $em->getRepository('AppBundle:User')->findOneBy(array( 'name' => $name ));
 
-            $lists = $user->getToLists();
+            if($user != null) {
+                $lists = $user->getToLists();
 
-            $teams = $mainUser->getTeams();
+                $teams = $mainUser->getTeams();
 
-            $todoCount = 0;
-
-            foreach  ($lists as $list)
-            {
-                $todos = $list->getTodos();
-                $todoCount = $todoCount + count($todos);
+                foreach ($lists as $list) {
+                    $todos = $list->getTodos();
+                    $todoCount = $todoCount + count($todos);
+                }
             }
+
+            $error = 'User '. $name . ' does not exist.';
 
         }
 
         return $this->render('dashboard/user.html.twig', array(
             'todo_count' => $todoCount,
             'user' => $user,
-            'teams' => $teams
+            'teams' => $teams,
+            'error' => $error
         ));
     }
 
